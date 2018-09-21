@@ -1,6 +1,6 @@
 {
   "name": "discord-bot-castform",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -24,12 +24,16 @@
     "node": "10.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/discord-bot-castform"
+    "url": "https://github.com/5310/discord-bot-castform"
   },
   "license": "MIT",
   "keywords": [
     "node",
-    "glitch",
-    "express"
+    "express",
+    "discord.js",
+    "bot",
+    "pokémon go",
+    "weather",
+    "accuweather"
   ]
 }

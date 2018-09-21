@@ -1,4 +1,4 @@
-const { pipe, map, forEach, merge, pump, share } = require('callbag-basics')
+const { pipe, map, forEach, merge, share } = require('callbag-basics')
 const tap = require('callbag-tap')
 const timer = require('callbag-date-timer')
 const of = require('callbag-of')
@@ -23,12 +23,15 @@ run(async () => {
   
   // Setup callbags
   Object.keys(locations).forEach(key => {
+    const location = locations[key]
     
     // Get forecast and predictions
     const weathers$ = pipe(
-      // of(0), //DEBUG:
-      pipe(merge(...HOURS.map(hour => timer(new Date(`2018-01-01T${hour}:05${location.timezone}`), 24*60*60*1000))), pump),
-      map(_ => locations[key]),
+      merge(
+        ...HOURS.map(hour => timer(new Date(`2018-01-01T${hour}:05${location.timezone}`), 24*60*60*1000)),
+        // of(0) //DEBUG: Triggers query at start even if it's not time
+      ),
+      map(_ => location),
       aw.query$,
       map(weathers => weathers.map(({epoch, querydate, queryhour, date, hour, ...forecast}) => ({ 
         epoch,
