@@ -56,7 +56,7 @@ run(async () => {
               .filter(k => prediction.superficial[k] && k != prediction.dominant)
               .map(k => labelEmotes[k])
             return {
-              name: hour2meridian(hour), 
+              name: hour2meridian(parseInt(hour)), 
               value: `${ 
                 labelEmotes[prediction.dominant] 
               }${ 

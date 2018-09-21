@@ -16,8 +16,8 @@ exports.compare = (a, b) => {
 exports.utc2istString = date => (new Date(date.valueOf() + 5.5*60*60*1000)).toISOString().slice(0, -1) + '+05:30'
 
 exports.hour2meridian = hour => {
-  const hour_ = parseInt(hour)
-  if (hour_ === 0) return '12am'
-  if (hour_ < 12 ) return `${hour_}am`
-  else return `${hour_ - 12}pm`
+  if (hour === 0) return '12am'
+  if (hour < 12 ) return `${hour}am`
+  if (hour === 12) return '12pm'
+  else return `${hour - 12}pm`
 }
