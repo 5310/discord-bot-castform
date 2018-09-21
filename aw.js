@@ -1,22 +1,15 @@
-const fetch = require('cross-fetch')
-const { merge, map, flatten, interval, fromPromise, pipe, share, filter, forEach } = require('callbag-basics')
-const of = require('callbag-of')
-const timer = require('callbag-date-timer')
-const pump = require('callbag-pump')
+const { pipe, map, fromPromise, flatten, filter } = require('callbag-basics')
 const tap = require('callbag-tap')
-const flattenIter = require('callbag-flatten-iter')
-
+const fetch = require('cross-fetch')
 const { utc2istString } = require('./utils')
 
 
 const API = location => `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${location}?apikey=${process.env.AWKEY}&details=true&metric=true`
-const HOURS = ['00', '08', '16']
-
-exports.source = location => pipe(
-  pipe(merge(...HOURS.map(hour => timer(new Date(`2018-01-01T${hour}:05${location.timezone}`), 24*60*60*1000))), pump),
-  // of(1), pump, //DEBUG:
-  tap(_ => console.log(`${new Date()}: Queried AccuWeather at ${location.name}`)),
-  map(() => fromPromise(fetch(API(location.id)).then(res => res.json()))), flatten,
+exports.source = location$ => pipe(
+  location$,
+  tap(location => console.log(`${new Date()}: Queried AccuWeather at ${location.name}`)),
+  map(location => fromPromise(fetch(API(location.id)).then(res => res.json()))), 
+  flatten,
   filter(Array.isArray),
   map(forecast => {    
     const now = utc2istString(new Date())
@@ -61,5 +54,4 @@ exports.source = location => pipe(
       uv,                          // uv index
     }))
   }),
-  share,
 )

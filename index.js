@@ -1,5 +1,7 @@
-const { pipe, map, forEach } = require('callbag-basics')
+const { pipe, map, forEach, merge, pump, share } = require('callbag-basics')
 const tap = require('callbag-tap')
+const timer = require('callbag-date-timer')
+const of = require('callbag-of')
 
 require('./server')
 const bot = require('./bot')
@@ -9,18 +11,24 @@ const { aw2pogo, labelEmotes } = require('./pogo')
 const { run, hour2meridian } = require('./utils')
 
 const JSONDB = require('node-json-db')
+const HOURS = ['00', '08', '16']
 
-run(async () => {
-  
+run(async () => {  
   // Await the bot
   const client = await bot.client
-  
-  // Setup all the sources and sinks
+
+  // Load locations to check
   const locations = new JSONDB('locations.json', true, true).getData('/')
-  Object.keys(locations).forEach(key => {    
+  
+  // Setup callbags
+  Object.keys(locations).forEach(key => {
+    
     // Get forecast and predictions
     const weathers$ = pipe(
-      aw.source(locations[key]),
+      // of(0), //DEBUG:
+      pipe(merge(...HOURS.map(hour => timer(new Date(`2018-01-01T${hour}:05${location.timezone}`), 24*60*60*1000))), pump),
+      map(_ => locations[key]),
+      aw.source,
       map(weathers => weathers.map(({epoch, querydate, queryhour, date, hour, ...forecast}) => ({ 
         epoch,
         querydate,
@@ -30,6 +38,7 @@ run(async () => {
         forecast,
         prediction: aw2pogo(forecast)
       }))),
+      share,
     )
     
     // Store forecast and predictions
