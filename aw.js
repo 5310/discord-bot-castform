@@ -5,11 +5,15 @@ const { utc2istString } = require('./utils')
 
 
 const API = location => `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${location}?apikey=${process.env.AWKEY}&details=true&metric=true`
-exports.source = location$ => pipe(
+const query = location$ => pipe(
   location$,
-  tap(location => console.log(`${new Date()}: Queried AccuWeather at ${location.name}`)),
+  tap(location => console.log(`AccuWeather at ${location.name}`)),
   map(location => fromPromise(fetch(API(location.id)).then(res => res.json()))), 
   flatten,
+  tap(_ => {
+    if (!Array.isArray(_)) console.log('Service unavailable')
+    return _
+  }),
   filter(Array.isArray),
   map(forecast => {    
     const now = utc2istString(new Date())
@@ -55,3 +59,7 @@ exports.source = location$ => pipe(
     }))
   }),
 )
+
+module.exports = {
+  query,
+}

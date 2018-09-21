@@ -5,7 +5,6 @@ const { utc2istString } = require('./utils')
 
 const app = express()
 app.get("/", (request, response) => {
-  // console.log(`${utc2istString(new Date())}: Ping received`)
   response.sendStatus(200)
 })
 app.listen(process.env.PORT)

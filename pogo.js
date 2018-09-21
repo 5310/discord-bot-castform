@@ -1,4 +1,4 @@
-exports.labelmap = ({
+const labelmap = ({
   'sunny':                  'clear',
   'clear':                  'clear',
   'mostlysunny':            'clear',
@@ -28,7 +28,7 @@ exports.labelmap = ({
   'partlycloudywtstorms':	  'partlycloudy',
 }) // https://i.imgur.com/LgkxoJx.png
 
-exports.labelEmotes = {
+const labelEmotes = {
   'clear': '☀',
   'partlycloudy': '⛅',
   'cloudy': '☁',
@@ -40,7 +40,7 @@ exports.labelEmotes = {
   'none': '🚫'
 }
 
-exports.thresholds = {
+const thresholds = {
   dominant: {
     'rain': 60,
     'snow': 60,
@@ -53,7 +53,7 @@ exports.thresholds = {
   },
 }
 
-exports.aw2pogo = ({
+const aw2pogo = ({
   label,
   wind, 
   gust,
@@ -72,3 +72,11 @@ exports.aw2pogo = ({
   }
 })
 // =if(L2:L = "override", "snow", if (K2:K = "override", "rain", if(and(H2:H = "override", I2:I = "override"), "windy", E2:E)))
+
+
+module.exports = {
+  labelmap,
+  labelEmotes,
+  thresholds,
+  aw2pogo
+}

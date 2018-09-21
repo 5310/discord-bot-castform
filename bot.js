@@ -26,10 +26,20 @@ client.on('message', message => {
   }
 })
 
-exports.config = config
+const send = message => Object.keys(config)
+  .map(key => ({guild: client.guilds.get(key), channelId: config[key].channel}))
+  .filter(({guild}) => guild)
+  .map(({guild, channelId}) => guild.channels.get(channelId))
+  .filter(channel => channel)
+  .forEach(channel => channel.send(message))
 
-exports.client =  new Promise((resolve, reject) => client.on("ready", () => {
-    console.log("Castform is ready")
-    resolve(client)
-  })
-)
+
+module.exports = {
+  config,
+  send,
+  client: new Promise((resolve, reject) => client.on("ready", () => {
+      console.log("Castform is ready")
+      resolve(client)
+    })
+  ),
+}
