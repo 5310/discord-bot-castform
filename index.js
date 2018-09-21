@@ -29,7 +29,7 @@ run(async () => {
       // of(0), //DEBUG:
       pipe(merge(...HOURS.map(hour => timer(new Date(`2018-01-01T${hour}:05${location.timezone}`), 24*60*60*1000))), pump),
       map(_ => locations[key]),
-      aw.query,
+      aw.query$,
       map(weathers => weathers.map(({epoch, querydate, queryhour, date, hour, ...forecast}) => ({ 
         epoch,
         querydate,
