@@ -1,0 +1,1498 @@
+{
+    "13": [
+        {
+            "epoch": 1537432200,
+            "querydate": "2018-09-20",
+            "queryhour": "13",
+            "date": "2018-09-20",
+            "hour": "14",
+            "forecast": {
+                "label": "thunderstorms",
+                "temp": 28.1,
+                "visib": 4.8,
+                "wind": 20.4,
+                "gust": 25.9,
+                "cloud": 92,
+                "precip": 51,
+                "rain": 51,
+                "snow": 0,
+                "humid": 91,
+                "dew": 26.6,
+                "ceiling": 9.144,
+                "light": true,
+                "uv": 2
+            },
+            "prediction": {
+                "dominant": "rain",
+                "superficial": {
+                    "snow": false,
+                    "rain": true,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537435800,
+            "querydate": "2018-09-20",
+            "queryhour": "13",
+            "date": "2018-09-20",
+            "hour": "15",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 29.3,
+                "visib": 6.4,
+                "wind": 22.2,
+                "gust": 29.6,
+                "cloud": 94,
+                "precip": 47,
+                "rain": 47,
+                "snow": 0,
+                "humid": 86,
+                "dew": 26.7,
+                "ceiling": 9.144,
+                "light": true,
+                "uv": 2
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537439400,
+            "querydate": "2018-09-20",
+            "queryhour": "13",
+            "date": "2018-09-20",
+            "hour": "16",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 30.3,
+                "visib": 6.4,
+                "wind": 24.1,
+                "gust": 31.5,
+                "cloud": 96,
+                "precip": 43,
+                "rain": 43,
+                "snow": 0,
+                "humid": 81,
+                "dew": 26.7,
+                "ceiling": 9.144,
+                "light": true,
+                "uv": 1
+            },
+            "prediction": {
+                "dominant": "windy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537443000,
+            "querydate": "2018-09-20",
+            "queryhour": "13",
+            "date": "2018-09-20",
+            "hour": "17",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 29.8,
+                "visib": 6.4,
+                "wind": 27.8,
+                "gust": 33.3,
+                "cloud": 99,
+                "precip": 47,
+                "rain": 47,
+                "snow": 0,
+                "humid": 82,
+                "dew": 26.4,
+                "ceiling": 0.457,
+                "light": true,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "windy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537446600,
+            "querydate": "2018-09-20",
+            "queryhour": "13",
+            "date": "2018-09-20",
+            "hour": "18",
+            "forecast": {
+                "label": "thunderstorms",
+                "temp": 28.9,
+                "visib": 4.8,
+                "wind": 25.9,
+                "gust": 25.9,
+                "cloud": 100,
+                "precip": 51,
+                "rain": 51,
+                "snow": 0,
+                "humid": 84,
+                "dew": 25.9,
+                "ceiling": 0.488,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "rain",
+                "superficial": {
+                    "snow": false,
+                    "rain": true,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537450200,
+            "querydate": "2018-09-20",
+            "queryhour": "13",
+            "date": "2018-09-20",
+            "hour": "19",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 28.2,
+                "visib": 6.4,
+                "wind": 24.1,
+                "gust": 25.9,
+                "cloud": 100,
+                "precip": 49,
+                "rain": 49,
+                "snow": 0,
+                "humid": 86,
+                "dew": 25.7,
+                "ceiling": 0.488,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537453800,
+            "querydate": "2018-09-20",
+            "queryhour": "13",
+            "date": "2018-09-20",
+            "hour": "20",
+            "forecast": {
+                "label": "thunderstorms",
+                "temp": 27.8,
+                "visib": 6.4,
+                "wind": 24.1,
+                "gust": 25.9,
+                "cloud": 100,
+                "precip": 58,
+                "rain": 58,
+                "snow": 0,
+                "humid": 90,
+                "dew": 26,
+                "ceiling": 0.488,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "rain",
+                "superficial": {
+                    "snow": false,
+                    "rain": true,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537457400,
+            "querydate": "2018-09-20",
+            "queryhour": "13",
+            "date": "2018-09-20",
+            "hour": "21",
+            "forecast": {
+                "label": "thunderstorms",
+                "temp": 27.9,
+                "visib": 6.4,
+                "wind": 22.2,
+                "gust": 25.9,
+                "cloud": 100,
+                "precip": 58,
+                "rain": 58,
+                "snow": 0,
+                "humid": 90,
+                "dew": 26.1,
+                "ceiling": 0.488,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "rain",
+                "superficial": {
+                    "snow": false,
+                    "rain": true,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537461000,
+            "querydate": "2018-09-20",
+            "queryhour": "13",
+            "date": "2018-09-20",
+            "hour": "22",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 27.8,
+                "visib": 6.4,
+                "wind": 22.2,
+                "gust": 25.9,
+                "cloud": 99,
+                "precip": 40,
+                "rain": 40,
+                "snow": 0,
+                "humid": 90,
+                "dew": 26,
+                "ceiling": 0.518,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537464600,
+            "querydate": "2018-09-20",
+            "queryhour": "13",
+            "date": "2018-09-20",
+            "hour": "23",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 27.7,
+                "visib": 6.4,
+                "wind": 20.4,
+                "gust": 22.2,
+                "cloud": 99,
+                "precip": 34,
+                "rain": 34,
+                "snow": 0,
+                "humid": 90,
+                "dew": 25.9,
+                "ceiling": 0.518,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537468200,
+            "querydate": "2018-09-20",
+            "queryhour": "13",
+            "date": "2018-09-21",
+            "hour": "00",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 27.6,
+                "visib": 6.4,
+                "wind": 20.4,
+                "gust": 24.1,
+                "cloud": 99,
+                "precip": 37,
+                "rain": 37,
+                "snow": 0,
+                "humid": 91,
+                "dew": 26,
+                "ceiling": 0.518,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537471800,
+            "querydate": "2018-09-20",
+            "queryhour": "13",
+            "date": "2018-09-21",
+            "hour": "01",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 27.6,
+                "visib": 6.4,
+                "wind": 22.2,
+                "gust": 24.1,
+                "cloud": 99,
+                "precip": 44,
+                "rain": 44,
+                "snow": 0,
+                "humid": 92,
+                "dew": 26.1,
+                "ceiling": 0.488,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        }
+    ],
+    "16": [
+        {
+            "epoch": 1537443000,
+            "querydate": "2018-09-20",
+            "queryhour": "16",
+            "date": "2018-09-20",
+            "hour": "17",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 29.8,
+                "visib": 6.4,
+                "wind": 20.4,
+                "gust": 24.1,
+                "cloud": 93,
+                "precip": 47,
+                "rain": 47,
+                "snow": 0,
+                "humid": 82,
+                "dew": 26.4,
+                "ceiling": 0.457,
+                "light": true,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537446600,
+            "querydate": "2018-09-20",
+            "queryhour": "16",
+            "date": "2018-09-20",
+            "hour": "18",
+            "forecast": {
+                "label": "thunderstorms",
+                "temp": 28.9,
+                "visib": 4.8,
+                "wind": 20.4,
+                "gust": 24.1,
+                "cloud": 96,
+                "precip": 51,
+                "rain": 51,
+                "snow": 0,
+                "humid": 84,
+                "dew": 25.9,
+                "ceiling": 0.488,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "rain",
+                "superficial": {
+                    "snow": false,
+                    "rain": true,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537450200,
+            "querydate": "2018-09-20",
+            "queryhour": "16",
+            "date": "2018-09-20",
+            "hour": "19",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 28.2,
+                "visib": 6.4,
+                "wind": 20.4,
+                "gust": 20.4,
+                "cloud": 100,
+                "precip": 49,
+                "rain": 49,
+                "snow": 0,
+                "humid": 86,
+                "dew": 25.7,
+                "ceiling": 0.488,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537453800,
+            "querydate": "2018-09-20",
+            "queryhour": "16",
+            "date": "2018-09-20",
+            "hour": "20",
+            "forecast": {
+                "label": "thunderstorms",
+                "temp": 27.8,
+                "visib": 6.4,
+                "wind": 20.4,
+                "gust": 22.2,
+                "cloud": 100,
+                "precip": 58,
+                "rain": 58,
+                "snow": 0,
+                "humid": 90,
+                "dew": 26,
+                "ceiling": 0.488,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "rain",
+                "superficial": {
+                    "snow": false,
+                    "rain": true,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537457400,
+            "querydate": "2018-09-20",
+            "queryhour": "16",
+            "date": "2018-09-20",
+            "hour": "21",
+            "forecast": {
+                "label": "thunderstorms",
+                "temp": 27.9,
+                "visib": 6.4,
+                "wind": 22.2,
+                "gust": 24.1,
+                "cloud": 100,
+                "precip": 58,
+                "rain": 58,
+                "snow": 0,
+                "humid": 90,
+                "dew": 26.1,
+                "ceiling": 0.488,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "rain",
+                "superficial": {
+                    "snow": false,
+                    "rain": true,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537461000,
+            "querydate": "2018-09-20",
+            "queryhour": "16",
+            "date": "2018-09-20",
+            "hour": "22",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 27.8,
+                "visib": 6.4,
+                "wind": 22.2,
+                "gust": 25.9,
+                "cloud": 99,
+                "precip": 40,
+                "rain": 40,
+                "snow": 0,
+                "humid": 90,
+                "dew": 26,
+                "ceiling": 0.518,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537464600,
+            "querydate": "2018-09-20",
+            "queryhour": "16",
+            "date": "2018-09-20",
+            "hour": "23",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 27.7,
+                "visib": 6.4,
+                "wind": 20.4,
+                "gust": 22.2,
+                "cloud": 99,
+                "precip": 34,
+                "rain": 34,
+                "snow": 0,
+                "humid": 90,
+                "dew": 25.9,
+                "ceiling": 0.518,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537468200,
+            "querydate": "2018-09-20",
+            "queryhour": "16",
+            "date": "2018-09-21",
+            "hour": "00",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 27.6,
+                "visib": 6.4,
+                "wind": 20.4,
+                "gust": 24.1,
+                "cloud": 99,
+                "precip": 37,
+                "rain": 37,
+                "snow": 0,
+                "humid": 91,
+                "dew": 26,
+                "ceiling": 0.518,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537471800,
+            "querydate": "2018-09-20",
+            "queryhour": "16",
+            "date": "2018-09-21",
+            "hour": "01",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 27.6,
+                "visib": 6.4,
+                "wind": 22.2,
+                "gust": 24.1,
+                "cloud": 99,
+                "precip": 44,
+                "rain": 44,
+                "snow": 0,
+                "humid": 92,
+                "dew": 26.1,
+                "ceiling": 0.488,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537475400,
+            "querydate": "2018-09-20",
+            "queryhour": "16",
+            "date": "2018-09-21",
+            "hour": "02",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 27.4,
+                "visib": 6.4,
+                "wind": 20.4,
+                "gust": 24.1,
+                "cloud": 99,
+                "precip": 48,
+                "rain": 48,
+                "snow": 0,
+                "humid": 92,
+                "dew": 26,
+                "ceiling": 0.488,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537479000,
+            "querydate": "2018-09-20",
+            "queryhour": "16",
+            "date": "2018-09-21",
+            "hour": "03",
+            "forecast": {
+                "label": "thunderstorms",
+                "temp": 27.1,
+                "visib": 6.4,
+                "wind": 20.4,
+                "gust": 24.1,
+                "cloud": 100,
+                "precip": 52,
+                "rain": 52,
+                "snow": 0,
+                "humid": 91,
+                "dew": 25.6,
+                "ceiling": 0.488,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "rain",
+                "superficial": {
+                    "snow": false,
+                    "rain": true,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537482600,
+            "querydate": "2018-09-20",
+            "queryhour": "16",
+            "date": "2018-09-21",
+            "hour": "04",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 27,
+                "visib": 6.4,
+                "wind": 20.4,
+                "gust": 24.1,
+                "cloud": 99,
+                "precip": 43,
+                "rain": 43,
+                "snow": 0,
+                "humid": 92,
+                "dew": 25.6,
+                "ceiling": 0.488,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        }
+    ],
+    "00": [
+        {
+            "epoch": 1537471800,
+            "querydate": "2018-09-21",
+            "queryhour": "00",
+            "date": "2018-09-21",
+            "hour": "01",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 26.2,
+                "visib": 6.4,
+                "wind": 18.5,
+                "gust": 20.4,
+                "cloud": 100,
+                "precip": 48,
+                "rain": 48,
+                "snow": 0,
+                "humid": 95,
+                "dew": 25.4,
+                "ceiling": 0.488,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537475400,
+            "querydate": "2018-09-21",
+            "queryhour": "00",
+            "date": "2018-09-21",
+            "hour": "02",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 26.2,
+                "visib": 6.4,
+                "wind": 18.5,
+                "gust": 22.2,
+                "cloud": 100,
+                "precip": 49,
+                "rain": 49,
+                "snow": 0,
+                "humid": 99,
+                "dew": 26,
+                "ceiling": 0.488,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537479000,
+            "querydate": "2018-09-21",
+            "queryhour": "00",
+            "date": "2018-09-21",
+            "hour": "03",
+            "forecast": {
+                "label": "thunderstorms",
+                "temp": 26.2,
+                "visib": 6.4,
+                "wind": 20.4,
+                "gust": 22.2,
+                "cloud": 100,
+                "precip": 53,
+                "rain": 53,
+                "snow": 0,
+                "humid": 96,
+                "dew": 25.6,
+                "ceiling": 0.488,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "rain",
+                "superficial": {
+                    "snow": false,
+                    "rain": true,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537482600,
+            "querydate": "2018-09-21",
+            "queryhour": "00",
+            "date": "2018-09-21",
+            "hour": "04",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 26.2,
+                "visib": 6.4,
+                "wind": 20.4,
+                "gust": 22.2,
+                "cloud": 99,
+                "precip": 43,
+                "rain": 43,
+                "snow": 0,
+                "humid": 96,
+                "dew": 25.6,
+                "ceiling": 0.488,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537486200,
+            "querydate": "2018-09-21",
+            "queryhour": "00",
+            "date": "2018-09-21",
+            "hour": "05",
+            "forecast": {
+                "label": "thunderstorms",
+                "temp": 26.3,
+                "visib": 6.4,
+                "wind": 20.4,
+                "gust": 22.2,
+                "cloud": 99,
+                "precip": 51,
+                "rain": 51,
+                "snow": 0,
+                "humid": 96,
+                "dew": 25.5,
+                "ceiling": 0.488,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "rain",
+                "superficial": {
+                    "snow": false,
+                    "rain": true,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537489800,
+            "querydate": "2018-09-21",
+            "queryhour": "00",
+            "date": "2018-09-21",
+            "hour": "06",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 26.5,
+                "visib": 6.4,
+                "wind": 16.7,
+                "gust": 20.4,
+                "cloud": 99,
+                "precip": 43,
+                "rain": 43,
+                "snow": 0,
+                "humid": 94,
+                "dew": 25.5,
+                "ceiling": 0.518,
+                "light": true,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537493400,
+            "querydate": "2018-09-21",
+            "queryhour": "00",
+            "date": "2018-09-21",
+            "hour": "07",
+            "forecast": {
+                "label": "thunderstorms",
+                "temp": 27,
+                "visib": 6.4,
+                "wind": 18.5,
+                "gust": 20.4,
+                "cloud": 99,
+                "precip": 51,
+                "rain": 51,
+                "snow": 0,
+                "humid": 92,
+                "dew": 25.7,
+                "ceiling": 0.518,
+                "light": true,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "rain",
+                "superficial": {
+                    "snow": false,
+                    "rain": true,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537497000,
+            "querydate": "2018-09-21",
+            "queryhour": "00",
+            "date": "2018-09-21",
+            "hour": "08",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 27.5,
+                "visib": 6.4,
+                "wind": 22.2,
+                "gust": 24.1,
+                "cloud": 99,
+                "precip": 47,
+                "rain": 47,
+                "snow": 0,
+                "humid": 91,
+                "dew": 26,
+                "ceiling": 0.518,
+                "light": true,
+                "uv": 1
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537500600,
+            "querydate": "2018-09-21",
+            "queryhour": "00",
+            "date": "2018-09-21",
+            "hour": "09",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 28.1,
+                "visib": 6.4,
+                "wind": 22.2,
+                "gust": 24.1,
+                "cloud": 99,
+                "precip": 40,
+                "rain": 40,
+                "snow": 0,
+                "humid": 89,
+                "dew": 26.1,
+                "ceiling": 0.549,
+                "light": true,
+                "uv": 1
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537504200,
+            "querydate": "2018-09-21",
+            "queryhour": "00",
+            "date": "2018-09-21",
+            "hour": "10",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 28.9,
+                "visib": 6.4,
+                "wind": 24.1,
+                "gust": 25.9,
+                "cloud": 99,
+                "precip": 33,
+                "rain": 33,
+                "snow": 0,
+                "humid": 86,
+                "dew": 26.4,
+                "ceiling": 0.549,
+                "light": true,
+                "uv": 1
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537507800,
+            "querydate": "2018-09-21",
+            "queryhour": "00",
+            "date": "2018-09-21",
+            "hour": "11",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 29.6,
+                "visib": 6.4,
+                "wind": 24.1,
+                "gust": 25.9,
+                "cloud": 99,
+                "precip": 33,
+                "rain": 33,
+                "snow": 0,
+                "humid": 84,
+                "dew": 26.7,
+                "ceiling": 0.549,
+                "light": true,
+                "uv": 2
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537511400,
+            "querydate": "2018-09-21",
+            "queryhour": "00",
+            "date": "2018-09-21",
+            "hour": "12",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 29.8,
+                "visib": 6.4,
+                "wind": 24.1,
+                "gust": 27.8,
+                "cloud": 99,
+                "precip": 36,
+                "rain": 36,
+                "snow": 0,
+                "humid": 83,
+                "dew": 26.7,
+                "ceiling": 0.518,
+                "light": true,
+                "uv": 2
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        }
+    ],
+    "08": [
+        {
+            "epoch": 1537500600,
+            "querydate": "2018-09-21",
+            "queryhour": "08",
+            "date": "2018-09-21",
+            "hour": "09",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 27.5,
+                "visib": 6.4,
+                "wind": 24.1,
+                "gust": 27.8,
+                "cloud": 99,
+                "precip": 39,
+                "rain": 39,
+                "snow": 0,
+                "humid": 88,
+                "dew": 25.5,
+                "ceiling": 0.549,
+                "light": true,
+                "uv": 1
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537504200,
+            "querydate": "2018-09-21",
+            "queryhour": "08",
+            "date": "2018-09-21",
+            "hour": "10",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 28.6,
+                "visib": 6.4,
+                "wind": 25.9,
+                "gust": 29.6,
+                "cloud": 99,
+                "precip": 31,
+                "rain": 31,
+                "snow": 0,
+                "humid": 87,
+                "dew": 26.2,
+                "ceiling": 0.549,
+                "light": true,
+                "uv": 1
+            },
+            "prediction": {
+                "dominant": "windy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537507800,
+            "querydate": "2018-09-21",
+            "queryhour": "08",
+            "date": "2018-09-21",
+            "hour": "11",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 29,
+                "visib": 6.4,
+                "wind": 25.9,
+                "gust": 29.6,
+                "cloud": 99,
+                "precip": 31,
+                "rain": 31,
+                "snow": 0,
+                "humid": 86,
+                "dew": 26.5,
+                "ceiling": 0.549,
+                "light": true,
+                "uv": 2
+            },
+            "prediction": {
+                "dominant": "windy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537511400,
+            "querydate": "2018-09-21",
+            "queryhour": "08",
+            "date": "2018-09-21",
+            "hour": "12",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 29.2,
+                "visib": 6.4,
+                "wind": 25.9,
+                "gust": 29.6,
+                "cloud": 99,
+                "precip": 35,
+                "rain": 35,
+                "snow": 0,
+                "humid": 86,
+                "dew": 26.6,
+                "ceiling": 0.518,
+                "light": true,
+                "uv": 2
+            },
+            "prediction": {
+                "dominant": "windy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537515000,
+            "querydate": "2018-09-21",
+            "queryhour": "08",
+            "date": "2018-09-21",
+            "hour": "13",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 29.5,
+                "visib": 8,
+                "wind": 25.9,
+                "gust": 27.8,
+                "cloud": 99,
+                "precip": 43,
+                "rain": 43,
+                "snow": 0,
+                "humid": 83,
+                "dew": 26.3,
+                "ceiling": 5.883,
+                "light": true,
+                "uv": 3
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537518600,
+            "querydate": "2018-09-21",
+            "queryhour": "08",
+            "date": "2018-09-21",
+            "hour": "14",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 29.8,
+                "visib": 8,
+                "wind": 24.1,
+                "gust": 27.8,
+                "cloud": 99,
+                "precip": 47,
+                "rain": 47,
+                "snow": 0,
+                "humid": 83,
+                "dew": 26.6,
+                "ceiling": 5.883,
+                "light": true,
+                "uv": 2
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537522200,
+            "querydate": "2018-09-21",
+            "queryhour": "08",
+            "date": "2018-09-21",
+            "hour": "15",
+            "forecast": {
+                "label": "thunderstorms",
+                "temp": 29.4,
+                "visib": 8,
+                "wind": 25.9,
+                "gust": 27.8,
+                "cloud": 99,
+                "precip": 51,
+                "rain": 51,
+                "snow": 0,
+                "humid": 86,
+                "dew": 26.9,
+                "ceiling": 5.883,
+                "light": true,
+                "uv": 1
+            },
+            "prediction": {
+                "dominant": "rain",
+                "superficial": {
+                    "snow": false,
+                    "rain": true,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537525800,
+            "querydate": "2018-09-21",
+            "queryhour": "08",
+            "date": "2018-09-21",
+            "hour": "16",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 28.7,
+                "visib": 8,
+                "wind": 22.2,
+                "gust": 24.1,
+                "cloud": 99,
+                "precip": 38,
+                "rain": 38,
+                "snow": 0,
+                "humid": 88,
+                "dew": 26.5,
+                "ceiling": 5.883,
+                "light": true,
+                "uv": 1
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537529400,
+            "querydate": "2018-09-21",
+            "queryhour": "08",
+            "date": "2018-09-21",
+            "hour": "17",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 28,
+                "visib": 8,
+                "wind": 18.5,
+                "gust": 20.4,
+                "cloud": 98,
+                "precip": 32,
+                "rain": 32,
+                "snow": 0,
+                "humid": 90,
+                "dew": 26.2,
+                "ceiling": 5.883,
+                "light": true,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": true
+                }
+            }
+        },
+        {
+            "epoch": 1537533000,
+            "querydate": "2018-09-21",
+            "queryhour": "08",
+            "date": "2018-09-21",
+            "hour": "18",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 27.8,
+                "visib": 8,
+                "wind": 14.8,
+                "gust": 16.7,
+                "cloud": 98,
+                "precip": 28,
+                "rain": 28,
+                "snow": 0,
+                "humid": 90,
+                "dew": 26,
+                "ceiling": 5.883,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": false
+                }
+            }
+        },
+        {
+            "epoch": 1537536600,
+            "querydate": "2018-09-21",
+            "queryhour": "08",
+            "date": "2018-09-21",
+            "hour": "19",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 27.5,
+                "visib": 8,
+                "wind": 13,
+                "gust": 14.8,
+                "cloud": 98,
+                "precip": 20,
+                "rain": 20,
+                "snow": 0,
+                "humid": 91,
+                "dew": 25.8,
+                "ceiling": 5.883,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": false
+                }
+            }
+        },
+        {
+            "epoch": 1537540200,
+            "querydate": "2018-09-21",
+            "queryhour": "08",
+            "date": "2018-09-21",
+            "hour": "20",
+            "forecast": {
+                "label": "cloudy",
+                "temp": 27.3,
+                "visib": 8,
+                "wind": 11.1,
+                "gust": 13,
+                "cloud": 98,
+                "precip": 20,
+                "rain": 20,
+                "snow": 0,
+                "humid": 94,
+                "dew": 26.2,
+                "ceiling": 5.913,
+                "light": false,
+                "uv": 0
+            },
+            "prediction": {
+                "dominant": "cloudy",
+                "superficial": {
+                    "snow": false,
+                    "rain": false,
+                    "windy": false
+                }
+            }
+        }
+    ]
+}
