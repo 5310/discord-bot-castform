@@ -61,5 +61,5 @@ const query$ = location$ => pipe(
 )
 
 module.exports = {
-  query,
+  query$,
 }

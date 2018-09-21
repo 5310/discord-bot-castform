@@ -41,4 +41,4 @@ Similarly, you'd need to define your Discord bot's secret as an environment vari
 
 The bot needs at least the following permissions number: `19520`
 
-You can refer to [An Idiot's Guide](https://anidiots.guide/) for more information.
+You can refer to [An Idiot's Guide](https://anidiots.guide/) for more information. No, that's not me calling _you_ one :D
