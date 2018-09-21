@@ -16,10 +16,11 @@ run(async () => {
   const client = await bot.client
   
   // Setup all the sources and sinks
-  Object.keys(aw.locations).forEach(key => {    
+  const locations = new JSONDB('locations.json', true, true).getData('/')
+  Object.keys(locations).forEach(key => {    
     // Get forecast and predictions
     const weathers$ = pipe(
-      aw.source(aw.locations[key]),
+      aw.source(locations[key]),
       map(weathers => weathers.map(({epoch, querydate, queryhour, date, hour, ...forecast}) => ({ 
         epoch,
         querydate,
@@ -40,14 +41,14 @@ run(async () => {
     // Post predictions
     forEach(weathers => {
       const embed = {
-        // title: `${aw.locations[key].name}`,
+        // title: `${locations[key].name}`,
         footer: {
           text: `${
             ({'00': 'midnight', '08': 'morning', '16': 'afternoon'})[weathers[0].queryhour]
           } forecast, ${ weathers[0].querydate }`
         },
         fields: [{
-          name: aw.locations[key].name, 
+          name: locations[key].name, 
           value: '​', 
           inline: true
         }]

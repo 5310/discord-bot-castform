@@ -1,20 +1,13 @@
 const JSONDB = require('node-json-db')
-
-const configDb = new JSONDB('config', true, true)
-const config = configDb.getData('/') || {}
-exports.config = config
-
 const Discord = require("discord.js")
 const RC = require('reaction-core')
 
+
+const configDb = new JSONDB('config', true, true)
+const config = configDb.getData('/') || {}
+
 const client = new Discord.Client()
 client.login(process.env.DISCORDKEY)
-
-exports.client =  new Promise((resolve, reject) => client.on("ready", () => {
-    console.log("Castform is ready")
-    resolve(client)
-  })
-)
 
 client.on('message', message => {
   if (message.isMentioned(client.user)) {
@@ -32,3 +25,11 @@ client.on('message', message => {
     message.channel.send("I don't quite understand you.")
   }
 })
+
+exports.config = config
+
+exports.client =  new Promise((resolve, reject) => client.on("ready", () => {
+    console.log("Castform is ready")
+    resolve(client)
+  })
+)

@@ -1,0 +1,12 @@
+{  
+  "kolkata":{  
+    "name":"Kolkata",
+    "id":"206690",
+    "timezone":"+05:30"
+  },
+  "saltlake":{  
+    "name":"Saltlake",
+    "id":"3318389",
+    "timezone":"+05:30"
+  }
+}

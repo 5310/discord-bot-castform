@@ -9,29 +9,8 @@ const flattenIter = require('callbag-flatten-iter')
 const { utc2istString } = require('./utils')
 
 
-const AWKEY = process.env.AWKEY
-const API = location => `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${location}?apikey=${AWKEY}&details=true&metric=true`
-const LOCATION = {
-  // howrah: { // somehow, this area code gets forecast weather for the query-hour, despite being a copy of Kolkata!
-  //   name: 'Howrah',
-  //   id: '3318435',
-  //   timezone: '+05:30',
-  // },
-  kolkata: {
-    name: 'Kolkata',
-    id: '206690',
-    timezone: '+05:30',
-  },
-  saltlake: {
-    name: 'Saltlake',
-    id: '3318389',
-    timezone: '+05:30',
-  },
-}
+const API = location => `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${location}?apikey=${process.env.AWKEY}&details=true&metric=true`
 const HOURS = ['00', '08', '16']
-
-exports.locations = LOCATION
-exports.hours = HOURS
 
 exports.source = location => pipe(
   pipe(merge(...HOURS.map(hour => timer(new Date(`2018-01-01T${hour}:05${location.timezone}`), 24*60*60*1000))), pump),
