@@ -10,10 +10,6 @@ const query$ = location$ => pipe(
   tap(location => console.log(`AccuWeather at ${location.name}`)),
   map(location => fromPromise(fetch(API(location.id)).then(res => res.json()))), 
   flatten,
-  tap(_ => {
-    if (!Array.isArray(_)) console.log('Service unavailable')
-    return _
-  }),
   filter(Array.isArray),
   map(forecast => {    
     const now = utc2istString(new Date())
@@ -58,6 +54,7 @@ const query$ = location$ => pipe(
       uv,                          // uv index
     }))
   }),
+  // tap(console.log)
 )
 
 module.exports = {

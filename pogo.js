@@ -61,14 +61,14 @@ const aw2pogo = ({
   snow,
 }) => ({
   dominant: 
-    snow >= exports.thresholds.dominant.snow ? 'snow' : 
-    precip >= exports.thresholds.dominant.rain ? 'rain' :
-    wind + gust >= exports.thresholds.dominant.wind ? 'windy' :
-    exports.labelmap[label],
+    snow >= thresholds.dominant.snow ? 'snow' : 
+    precip >= thresholds.dominant.rain ? 'rain' :
+    wind + gust >= thresholds.dominant.wind ? 'windy' :
+    labelmap[label],
   superficial: {
-    'snow': snow >= exports.thresholds.superficial.snow,
-    'rain': precip >= exports.thresholds.superficial.rain,
-    'windy': wind >= exports.thresholds.superficial.wind
+    'snow': snow >= thresholds.superficial.snow,
+    'rain': precip >= thresholds.superficial.rain,
+    'windy': wind >= thresholds.superficial.wind
   }
 })
 // =if(L2:L = "override", "snow", if (K2:K = "override", "rain", if(and(H2:H = "override", I2:I = "override"), "windy", E2:E)))
