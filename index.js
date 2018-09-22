@@ -19,7 +19,7 @@ run(async () => {
   const client = await bot.client
 
   // Load locations to check
-  const locations = new JSONDB('locations.json', true, true).getData('/')
+  const locations = new JSONDB('locations', true, true).getData('/')
   
   // Setup callbags
   Object.keys(locations).forEach(key => {
@@ -48,7 +48,7 @@ run(async () => {
     // Store forecast and predictions
     const weatherDb = new JSONDB(`weather_${key}`, true, true)
     forEach(weathers => {
-      weatherDb.push(`${weathers[0].querydate}/${weathers[0].queryhour}`, weathers, true)
+      weatherDb.push(`/${weathers[0].querydate}/${weathers[0].queryhour}`, weathers, true)
     })(weathers$)
     
     // Post predictions

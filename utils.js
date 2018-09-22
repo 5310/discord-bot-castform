@@ -21,3 +21,11 @@ exports.hour2meridian = hour => {
   if (hour === 12) return '12pm'
   else return `${hour - 12}pm`
 }
+
+exports.objectFilter = (pred, obj) => Object.entries(obj)
+  .filter(([key]) => pred(key))
+  .reduce((obj, [key, val]) => Object.assign(obj, { [key]: val }), {})
+
+exports.pick = (keys, obj) => Object.entries(obj)
+  .filter(([key]) => keys.includes(key))
+  .reduce((obj, [key, val]) => Object.assign(obj, { [key]: val }), {})

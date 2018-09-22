@@ -42,3 +42,27 @@ Similarly, you'd need to define your Discord bot's secret as an environment vari
 The bot needs at least the following permissions number: `19520`
 
 You can refer to [An Idiot's Guide](https://anidiots.guide/) for more information. No, that's not me calling _you_ one :D
+
+## Usage
+
+### Set Forecast Channel
+
+Just @mention the bot with a channel:
+
+`@Castform setChannel #weather`
+  
+Make sure it gets write and embed access to that channel, ofc. 
+
+Bear in mind that only one active channel possible per server. And you will only get forecasts three times a day starting at midnight five minutes past the hour.
+
+### View Saved Weather Data
+
+The bot also saves all forecast weather to disk that you can view with the following REST queries:
+
+`<bot>/weather/:location`
+
+Returns all the saved weather for that `location` if any.
+
+`<bot>/weather/:location/:year-:month-:day`
+
+Returns that specific date for that specific `location` if any. Also, you can set `year` `month` or `day` to `0` to match everything; e.g. `2018-00-01` would return only the first day of every month in 2018.
