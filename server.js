@@ -21,7 +21,7 @@ app.get("/weather/:location", (request, response) => {
 app.get("/weather/:location/:year-:month-:day", (request, response) => {
   const { location, year, month, day } = request.params
   const weather = new JSONDB(`weather_${location}`, true, true).getData('/')
-  response.json(filter(date => date.match(RegExp(`^${parseInt(year) || '....'}-${parseInt(month) || '..'}-${parseInt(day) || '..'}$`)), weather))
+  response.json(filter(date => date.match(RegExp(`^${year || '....'}-${month || '..'}-${day || '..'}$`)), weather))
 })
 
 app.listen(process.env.PORT)
