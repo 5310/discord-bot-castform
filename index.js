@@ -10,7 +10,7 @@ const aw = require('./aw')
 const pogo = require('./pogo')
 const { run, hour2meridian } = require('./utils')
 
-
+const FORECASTOFFSET = 0 // Seems like first hours are still bugged
 const HOURS = ['00', '08', '16']
 const JSONDB = require('node-json-db')
 
@@ -65,7 +65,7 @@ run(async () => {
           value: '​', 
           inline: true
         }]
-          .concat(weathers.slice(0, 8).map(({hour, prediction}) => {
+          .concat(weathers.slice(...[0, 8].map(x => x + FORECASTOFFSET)).map(({hour, prediction}) => {
             const superficials = Object.keys(prediction.superficial)
               .filter(k => prediction.superficial[k] && k != prediction.dominant)
               .map(k => pogo.labelEmotes[k])
