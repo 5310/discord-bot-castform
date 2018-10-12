@@ -13,7 +13,6 @@ const { run, hour2meridian } = require('./utils')
 const FORECASTOFFSET = 2
 const HOURS = ['00', '08', '16']
 // const HOURS = new Array(24).fill(true).map((_, i) => `${i}`.padStart(2, '0')) // Debug: ALL DAY, EVERY DAY
-console.log(HOURS)
 const JSONDB = require('node-json-db')
 
 run(async () => {  

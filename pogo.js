@@ -61,6 +61,7 @@ const aw2pogo = ({
   snow,
 }) => ({
   dominant: 
+    ['rainy', 'snow'].includes(labelmap[label]) ? labelmap[label] :
     snow >= thresholds.dominant.snow ? 'snow' : 
     precip >= thresholds.dominant.rain ? 'rain' :
     wind + gust >= thresholds.dominant.wind ? 'windy' :
