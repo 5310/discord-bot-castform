@@ -5,10 +5,10 @@
 - embeds
   - https://anidiots.guide/first-bot/using-embeds-in-messages#object-based-embeds
   - https://leovoel.github.io/embed-visualizer/
-  
-  ,
-  "saltlake":{  
-    "name":"Saltlake",
-    "id":"3318389",
-    "timezone":"+05:30"
-  }
+- sometimes, still gives wrong forecasts :[
+- changes noticed
+  - forecast does change at 8am
+    - 2018-10-07
+  - forecast does change at 7**p**m
+    - 2018-10-06
+  - forecast can always change for the first three hours (+1 – +3) 
