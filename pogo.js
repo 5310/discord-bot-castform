@@ -61,9 +61,10 @@ const aw2pogo = ({
   snow,
 }) => ({
   dominant: 
-    ['rainy', 'snow'].includes(labelmap[label]) ? labelmap[label] :
+    ['rain', 'snow'].includes(labelmap[label]) ? labelmap[label] :
     snow >= thresholds.dominant.snow ? 'snow' : 
     precip >= thresholds.dominant.rain ? 'rain' :
+    label.search('wshowers') >= 0 ? labelmap[label] : 
     wind + gust >= thresholds.dominant.wind ? 'windy' :
     labelmap[label],
   superficial: {
@@ -73,6 +74,8 @@ const aw2pogo = ({
   }
 })
 // =if(L2:L = "override", "snow", if (K2:K = "override", "rain", if(and(H2:H = "override", I2:I = "override"), "windy", E2:E)))
+//TODO: Apparently AW 'w/ showers' overrides this entirely: 
+// https://www.reddit.com/r/TheSilphRoad/comments/9uoz3r/the_usual_requirement_for_wind_seems_to_have/e95x731/
 
 
 module.exports = {

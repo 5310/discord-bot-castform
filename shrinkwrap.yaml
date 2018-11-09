@@ -111,7 +111,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-gi72tiwXCs2fLpsH8MQ98bVl6JjKsVHCVg6uQJjKsUUzADwvj4Vl6E0+Ygbf4sXztnJZgJJIs9N6XgqgtM4PRQ==
-      tarball: 'http://registry.npmjs.org/callbag-for-each/-/callbag-for-each-1.0.1.tgz'
   /callbag-from-event/1.0.0:
     dev: false
     resolution:
@@ -308,7 +307,6 @@ packages:
       node: '>= 0.10.0'
     resolution:
       integrity: sha1-avilAjUNsyRuzEvs9rWjTSL37VM=
-      tarball: 'http://registry.npmjs.org/express/-/express-4.16.3.tgz'
   /finalhandler/1.1.1:
     dependencies:
       debug: 2.6.9
@@ -357,7 +355,6 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-i1VoC7S+KDoLW/TqLjhYC+HZMg0=
-      tarball: 'http://registry.npmjs.org/http-errors/-/http-errors-1.6.3.tgz'
   /http/0.0.0:
     dev: false
     resolution:
@@ -421,7 +418,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-hX/Kv8M5fSYluCKCYuhqp6ARsF0=
-      tarball: 'http://registry.npmjs.org/minimist/-/minimist-0.0.8.tgz'
   /mkdirp/0.5.1:
     dependencies:
       minimist: 0.0.8
@@ -429,7 +425,6 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
-      tarball: 'http://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz'
   /ms/2.0.0:
     dev: false
     resolution:
@@ -446,7 +441,6 @@ packages:
       node: 4.x || >=6.0.0
     resolution:
       integrity: sha1-q4hOjn5X44qUR1POxwb3iNF2i7U=
-      tarball: 'http://registry.npmjs.org/node-fetch/-/node-fetch-2.1.2.tgz'
   /node-json-db/0.9.0:
     dependencies:
       mkdirp: 0.5.1
@@ -612,7 +606,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-dcQ1GWpOD/eEQ97k66aiEVpNnapVj90/+R+SXTPYGHpYBBypfKJEQjLrvMZ7YXbKm21gXd4NcuxUTjiv1YtLng==
-      tarball: 'http://registry.npmjs.org/whatwg-fetch/-/whatwg-fetch-2.0.4.tgz'
   /ws/4.1.0:
     dependencies:
       async-limiter: 1.0.0

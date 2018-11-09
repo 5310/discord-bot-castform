@@ -10,8 +10,9 @@ const aw = require('./aw')
 const pogo = require('./pogo')
 const { run, hour2meridian } = require('./utils')
 
-const FORECASTOFFSET = 2
-const HOURS = ['00', '08', '16']
+const FORECASTOFFSET = 0
+const HOURS = ['00', '08', '16'] // DEBUG: 
+// const HOURS = ['00', '08', '10', '12', '14', '16', '18', '20'] // DEBUG: 
 // const HOURS = new Array(24).fill(true).map((_, i) => `${i}`.padStart(2, '0')) // Debug: ALL DAY, EVERY DAY
 const JSONDB = require('node-json-db')
 
@@ -66,7 +67,7 @@ run(async () => {
           value: '​', 
           inline: true
         }]
-          .concat(weathers.slice(...[0, 8].map(x => x + FORECASTOFFSET)).map(({hour, prediction}) => {
+          .concat(weathers/*.slice(...[0, 8].map(x => x + FORECASTOFFSET))*/.map(({hour, prediction}) => { // DEBUG:
             const superficials = Object.keys(prediction.superficial)
               .filter(k => prediction.superficial[k] && k != prediction.dominant)
               .map(k => pogo.labelEmotes[k])
