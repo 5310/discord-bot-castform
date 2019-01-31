@@ -45,23 +45,7 @@ const labelmap = ({
   flurries:               { dominant: 'snow',         superficial: {} },
   snow:                   { dominant: 'snow',         superficial: {} },
   windy:                  { dominant: 'windy',        superficial: {} },
-}) 
-
-const windyList = [
-  'clear',
-  'cloudy',
-  'dreary',
-  'hazysunshine',
-  'hazymoonlight',
-  'intermittentclouds',
-  'mostlyclear',
-  'mostlycloudy',
-  'mostlysunny',
-  'partlycloudy',
-  'partlysunny',
-  'sunny',
-  'windy',  
-]
+})
 
 const thresholds = {
   dominant: {

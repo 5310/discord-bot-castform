@@ -68,7 +68,7 @@ const aw2pogo = ({
     precip >= thresholds.dominant.rain ? 'rain' :
     label.search('wshowers') >= 0 ? labelmap[label] : 
     // wind + gust >= thresholds.dominant.wind ? 'windy' : // DEBUG: This was our old wind model
-    (wind >= thresholds.dominant.wind || gust >= thresholds.dominant.gust)  ? 'windy' :
+    (wind >= thresholds.dominant.wind || gust >= thresholds.dominant.gust) ? 'windy' :
     labelmap[label],
   superficial: {
     'snow': snow >= thresholds.superficial.snow,
