@@ -44,12 +44,14 @@ const thresholds = {
   dominant: {
     'rain': 60,
     'snow': 60,
-    'wind': 55,
+    // 'wind': 55, // DEBUG: This was our old wind model
+    'wind': 24.1,
+    'gust': 31.1,
   },
   superficial: {
     'rain': 50,
     'snow': 50,
-    'wind': 16,
+    'wind': 16, // DEBUG: This was our old wind model, and I'm keeping it for superficial wind
   },
 }
 
@@ -65,7 +67,8 @@ const aw2pogo = ({
     snow >= thresholds.dominant.snow ? 'snow' : 
     precip >= thresholds.dominant.rain ? 'rain' :
     label.search('wshowers') >= 0 ? labelmap[label] : 
-    wind + gust >= thresholds.dominant.wind ? 'windy' :
+    // wind + gust >= thresholds.dominant.wind ? 'windy' : // DEBUG: This was our old wind model
+    (wind >= thresholds.dominant.wind || gust >= thresholds.dominant.gust)  ? 'windy' :
     labelmap[label],
   superficial: {
     'snow': snow >= thresholds.superficial.snow,
@@ -73,9 +76,10 @@ const aw2pogo = ({
     'windy': wind >= thresholds.superficial.wind
   }
 })
-// =if(L2:L = "override", "snow", if (K2:K = "override", "rain", if(and(H2:H = "override", I2:I = "override"), "windy", E2:E)))
-//TODO: Apparently AW 'w/ showers' overrides this entirely: 
+//NOTE: Apparently AW 'w/ showers' overrides this entirely: 
 // https://www.reddit.com/r/TheSilphRoad/comments/9uoz3r/the_usual_requirement_for_wind_seems_to_have/e95x731/
+//NOTE: Also, more wind models (and confirmation on the eight-hourly forecasts)
+// https://old.reddit.com/r/TheSilphRoad/comments/aks0k7/weather_gone_germany/ef7jnwu/
 
 
 module.exports = {

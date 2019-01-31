@@ -11,9 +11,8 @@ const pogo = require('./pogo')
 const { run, hour2meridian } = require('./utils')
 
 const FORECASTOFFSET = 0
-const HOURS = ['01', '09', '17'] // DEBUG: for the off-DST months; ['00', '08', '16']
-// const HOURS = ['00', '08', '10', '12', '14', '16', '18', '20'] // DEBUG: off-DST landmarks
-// const HOURS = new Array(24).fill(true).map((_, i) => `${i}`.padStart(2, '0')) // Debug: ALL DAY, EVERY DAY
+const HOURS = new Array(3).fill(0+1).map((v, i) => new String(v+i*8).padStart(2, '0')) // DEBUG: for the off-DST months it started at 0
+// const HOURS = new Array(24).fill().map((_, i) => `${i}`.padStart(2, '0')) // Debug: ALL DAY, EVERY DAY
 const JSONDB = require('node-json-db')
 
 run(async () => {  
