@@ -71,7 +71,7 @@ const aw2pogo = ({
     dominant: windyable && windy ? 'windy' : weather.dominant,
     superficial: {
       ...weather.superficial,
-      windy: windy || wind >= thresholds.superficial.wind
+      windy: (!windyable && windy) || wind >= thresholds.superficial.wind
     },
   }
 }
