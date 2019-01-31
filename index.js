@@ -7,7 +7,7 @@ require('./server')
 const bot = require('./bot')
 
 const aw = require('./aw')
-const pogo = require('./pogo')
+const pogo = require('./pogo-th0rnleaf')
 const { run, hour2meridian } = require('./utils')
 
 const FORECASTOFFSET = 0
