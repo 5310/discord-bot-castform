@@ -15,26 +15,26 @@ const labelEmotes = {
 }
 
 const labelmap = ({
-  sunny:                  { dominant: 'clear',        superficial: {} },
-  clear:                  { dominant: 'clear',        superficial: {} },
-  mostlysunny:            { dominant: 'clear',        superficial: {} },
-  mostlyclear:            { dominant: 'clear',        superficial: {} },
-  partlysunny:            { dominant: 'partlycloudy', superficial: {} },
+  sunny:                  { dominant: 'clear',        superficial: {}, windyable: true },
+  clear:                  { dominant: 'clear',        superficial: {}, windyable: true },
+  mostlysunny:            { dominant: 'clear',        superficial: {}, windyable: true },
+  mostlyclear:            { dominant: 'clear',        superficial: {}, windyable: true },
+  partlysunny:            { dominant: 'partlycloudy', superficial: {}, windyable: true },
   partlysunnywshowers:    { dominant: 'partlycloudy', superficial: { rain: true } },
   partlysunnywtstorms:    { dominant: 'partlycloudy', superficial: { rain: true } },
   partlysunnywflurries:   { dominant: 'partlycloudy', superficial: { snow: true } },
-  partlycloudy:           { dominant: 'partlycloudy', superficial: {} },
+  partlycloudy:           { dominant: 'partlycloudy', superficial: {}, windyable: true },
   partlycloudywshowers:   { dominant: 'partlycloudy', superficial: { rain: true } },
   partlycloudywtstorms:	  { dominant: 'partlycloudy', superficial: { rain: true } },
-  intermittentclouds:     { dominant: 'partlycloudy', superficial: {} },
-  mostlycloudy:           { dominant: 'cloudy',       superficial: {} },
+  intermittentclouds:     { dominant: 'partlycloudy', superficial: {}, windyable: true },
+  mostlycloudy:           { dominant: 'cloudy',       superficial: {}, windyable: true },
   mostlycloudywshowers:   { dominant: 'cloudy',       superficial: { rain: true } },
   mostlycloudywtstorms:   { dominant: 'cloudy',       superficial: { rain: true } },
   mostlycloudywflurries:  { dominant: 'cloudy',       superficial: { snow: true } },
-  cloudy:                 { dominant: 'cloudy',       superficial: {} },
-  hazysunshine:           { dominant: 'cloudy',       superficial: {} },
-  hazymoonlight:          { dominant: 'cloudy',       superficial: {} },
-  dreary:                 { dominant: 'cloudy',       superficial: {} },
+  cloudy:                 { dominant: 'cloudy',       superficial: {}, windyable: true },
+  hazysunshine:           { dominant: 'cloudy',       superficial: {}, windyable: true },
+  hazymoonlight:          { dominant: 'cloudy',       superficial: {}, windyable: true },
+  dreary:                 { dominant: 'cloudy',       superficial: {}, windyable: true },
   showers:                { dominant: 'rain',         superficial: {} },
   rain:                   { dominant: 'rain',         superficial: {} },
   tstorms:                { dominant: 'rain',         superficial: {} },
@@ -44,7 +44,7 @@ const labelmap = ({
   rainandsnow:            { dominant: 'snow',         superficial: {} },
   flurries:               { dominant: 'snow',         superficial: {} },
   snow:                   { dominant: 'snow',         superficial: {} },
-  windy:                  { dominant: 'windy',        superficial: {} },
+  windy:                  { dominant: 'windy',        superficial: {}, windyable: true },
 })
 
 const thresholds = {
@@ -65,13 +65,12 @@ const aw2pogo = ({
   gust,
 }) => {
   const weather = labelmap[label]
-  const windyable = [weather.dominant, ...Object.keys(weather.superficial)].some(label => ['rain', 'snow', 'fog'].includes(label))
   const windy = wind >= thresholds.dominant.wind || gust >= thresholds.dominant.gust
   return {
-    dominant: windyable && windy ? 'windy' : weather.dominant,
+    dominant: weather.windyable && windy ? 'windy' : weather.dominant,
     superficial: {
       ...weather.superficial,
-      windy: (!windyable && windy) || wind >= thresholds.superficial.wind
+      windy: (!weather.windyable && windy) || wind >= thresholds.superficial.wind
     },
   }
 }
