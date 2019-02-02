@@ -49,8 +49,8 @@ const labelmap = ({
 
 const thresholds = {
   dominant: {
-    wind: 24.1,
-    gust: 31.1,
+    wind: 24,
+    gust: 35,
   },
   superficial: {
     // rain: 50,
