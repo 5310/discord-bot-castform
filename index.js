@@ -58,7 +58,7 @@ run(async () => {
       const embed = {
         // title: `${locations[key].name}`,
         footer: {
-          text: `hour ${weathers[0].queryhour}, ${ weathers[0].querydate }`
+          text: `${weathers[0].querydate}T${weathers[0].queryhour}${location.timezone}`
         },
         fields: [{
           name: locations[key].name, 
