@@ -54,7 +54,7 @@ const query$ = location$ => pipe(
       uv,                          // uv index
     }))
   }),
-  // tap(console.log)
+  // tap(console.log) // DEBUG:
 )
 
 module.exports = {
