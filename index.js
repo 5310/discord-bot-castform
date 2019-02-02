@@ -18,7 +18,7 @@ const JSONDB = require('node-json-db')
 
 const PULLHOUR = 2 // NOTE: apparently pull-hour/query-hour-offset changes every now and then without much rhyme or reason :|
 const HOURS = 
-      new Array(24).fill().map((_, i) => `${i}`.padStart(2, '0')) || // Debug: ALL DAY, EVERY DAY
+      // new Array(24).fill().map((_, i) => `${i}`.padStart(2, '0')) || // Debug: ALL DAY, EVERY DAY
       new Array(3).fill(0+PULLHOUR).map((v, i) => new String((24+v+i*8)%24).padStart(2, '0'))
 
 run(async () => {  
