@@ -1,16 +1,4 @@
-const labelEmotes = {
-  clear:        '☀',
-  partlycloudy: '⛅',
-  cloudy:       '☁',
-  rain:         '☔',
-  snow:         '⛄',
-  fog:          '🌫',
-  windy:        '🎐',
-  alert:        '⚠',
-  none:         '🚫',
-}
-
-const labelmap = ({
+const weatherMap = ({
   sunny:                  'clear',
   clear:                  'clear',
   mostlysunny:            'clear',
@@ -64,12 +52,12 @@ const aw2pogo = ({
   snow,
 }) => ({
   dominant: 
-    ['rain', 'snow'].includes(labelmap[label]) ? labelmap[label] :
+    ['rain', 'snow'].includes(weatherMap[label]) ? weatherMap[label] :
     snow >= thresholds.dominant.snow ? 'snow' : 
     precip >= thresholds.dominant.rain ? 'rain' :
-    label.search('wshowers') >= 0 ? labelmap[label] : 
+    label.search('wshowers') >= 0 ? weatherMap[label] : 
     wind + gust >= thresholds.dominant.wind ? 'windy' : // DEBUG: This was our old wind model
-    labelmap[label],
+    weatherMap[label],
   superficial: {
     'snow': snow >= thresholds.superficial.snow,
     'rain': precip >= thresholds.superficial.rain,
@@ -79,9 +67,4 @@ const aw2pogo = ({
 //NOTE: Apparently AW 'w/ showers' overrides this entirely: 
 // https://www.reddit.com/r/TheSilphRoad/comments/9uoz3r/the_usual_requirement_for_wind_seems_to_have/e95x731/
 
-module.exports = {
-  labelmap,
-  labelEmotes,
-  thresholds,
-  aw2pogo
-}
+module.exports = aw2pogo

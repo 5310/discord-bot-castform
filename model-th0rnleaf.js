@@ -2,19 +2,7 @@
 // https://old.reddit.com/r/TheSilphRoad/comments/aks0k7/weather_gone_germany/ef7jnwu/
 // https://docs.google.com/spreadsheets/d/1v51qbI1egh6eBTk-NTaRy3Qlx2Y2v9kDYqmvHlmntJE/edit#gid=0 
 
-const labelEmotes = {
-  clear:        '☀',
-  partlycloudy: '⛅',
-  cloudy:       '☁',
-  rain:         '☔',
-  snow:         '⛄',
-  fog:          '🌫',
-  windy:        '🎐',
-  alert:        '⚠',
-  none:         '🚫',
-}
-
-const labelmap = ({
+const weatherMap = ({
   sunny:                  { dominant: 'clear',        superficial: {}, windyable: true },
   clear:                  { dominant: 'clear',        superficial: {}, windyable: true },
   mostlysunny:            { dominant: 'clear',        superficial: {}, windyable: true },
@@ -64,7 +52,7 @@ const aw2pogo = ({
   wind, 
   gust,
 }) => {
-  const weather = labelmap[label]
+  const weather = weatherMap[label]
   const windy = wind >= thresholds.dominant.wind || gust >= thresholds.dominant.gust
   const dominant = weather.windyable && windy ? 'windy' : weather.dominant
   return {
@@ -76,9 +64,4 @@ const aw2pogo = ({
   }
 }
 
-module.exports = {
-  labelmap,
-  labelEmotes,
-  thresholds,
-  aw2pogo
-}
+module.exports = aw2pogo

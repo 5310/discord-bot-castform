@@ -7,7 +7,8 @@ require('./server')
 const bot = require('./bot')
 
 const aw = require('./aw')
-const pogo = require('./pogo-th0rnleaf')
+const pogo = require('./pogo')
+const model = require('./model-th0rnleaf')
 const { run, hour2meridian } = require('./utils')
 
 const FORECASTOFFSET = 0
@@ -41,7 +42,7 @@ run(async () => {
         date,
         hour,
         forecast,
-        prediction: pogo.aw2pogo(forecast)
+        prediction: model(forecast)
       }))),
       share,
     )
@@ -67,11 +68,11 @@ run(async () => {
           .concat(weathers.slice(...[0, 8].map(x => x + FORECASTOFFSET)).map(({hour, prediction}) => { // DEBUG: Next 8 hours
             const superficials = Object.keys(prediction.superficial)
               .filter(k => prediction.superficial[k] && k != prediction.dominant)
-              .map(k => pogo.labelEmotes[k])
+              .map(k => pogo.labelEmoteMap[k])
             return {
               name: hour2meridian(parseInt(hour)), 
               value: `${ 
-                pogo.labelEmotes[prediction.dominant] 
+                pogo.labelEmoteMap[prediction.dominant] 
               }${ 
                 superficials.length ? superficials.join('') : '' 
               }`, 
