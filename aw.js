@@ -32,10 +32,10 @@ const query$ = location$ => pipe(
       UVIndex: uv,
     }) => ({
       epoch,
-      querydate: now.slice(0, 10), // date of the api call, IST
-      queryhour: now.slice(11, 13),// hour of the api call, IST
-      date: datetime.slice(0, 10), // date of the forecast, IST
-      hour: datetime.slice(11, 13),// hour of the forecast, IST
+      querydate: now.slice(0, 10), // date of the api call
+      queryhour: now.slice(11, 13),// hour of the api call
+      date: datetime.slice(0, 10), // date of the forecast
+      hour: datetime.slice(11, 13),// hour of the forecast
       label: label
         .replace(/[^\w!?]/g,'')
         .toLowerCase(),            // aw label of the weather
