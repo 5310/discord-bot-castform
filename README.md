@@ -33,9 +33,11 @@ In my city the weather cells are definitely level 10 S2 cells.
 
 You'll need one from [AccuWeather APIs](https://developer.accuweather.com).
 
-A free one will do, unless you add far too many locations and run out of your daily limit of 50 calls. That gives you 16 locations to query three times a day. Although you'll eventually want to query hourly when the pull hours change!
+A free one will do, unless you add far too many locations and run out of your daily limit of 50 calls. That gives you 16 locations to query three times a day. 
 
 You'd need to set this as an environmental variable called `AWKEY`.
+
+...Although you'll eventually want to query hourly when the pull hours change! At this stage, this is most easily done just by modifying `index.js`. The constant that sets the pull hours is called `PULLHOUR`. There are other handy debug helpers commented out within the file.
 
 ### Discord Bot Setup
 
