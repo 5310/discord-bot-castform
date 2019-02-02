@@ -11,10 +11,12 @@ const pogo = require('./pogo')
 const model = require('./model-th0rnleaf')
 const { run, hour2meridian } = require('./utils')
 
-const FORECASTOFFSET = 10
-const HOURS = new Array(3).fill(0+FORECASTOFFSET).map((v, i) => new String((24+v+i*8)%24).padStart(2, '0')) // DEBUG: for the off-DST months it started at 0
-// const HOURS = new Array(24).fill().map((_, i) => `${i}`.padStart(2, '0')) // Debug: ALL DAY, EVERY DAY
 const JSONDB = require('node-json-db')
+
+const FORECASTOFFSET = 2  // NOTE: apparently pull-hour/query-hour-offset changes every now and then without much rhyme or reason :|
+const HOURS = 
+      // new Array(24).fill().map((_, i) => `${i}`.padStart(2, '0')) || // Debug: ALL DAY, EVERY DAY
+      new Array(3).fill(0+FORECASTOFFSET).map((v, i) => new String((24+v+i*8)%24).padStart(2, '0'))
 
 run(async () => {  
   // Await the bot
