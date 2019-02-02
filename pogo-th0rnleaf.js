@@ -66,11 +66,12 @@ const aw2pogo = ({
 }) => {
   const weather = labelmap[label]
   const windy = wind >= thresholds.dominant.wind || gust >= thresholds.dominant.gust
+  const dominant = weather.windyable && windy ? 'windy' : weather.dominant
   return {
-    dominant: weather.windyable && windy ? 'windy' : weather.dominant,
+    dominant,
     superficial: {
       ...weather.superficial,
-      windy: (!weather.windyable && windy) || wind >= thresholds.superficial.wind
+      windy: dominant !== 'windy' && (!weather.windyable && windy || wind >= thresholds.superficial.wind)
     },
   }
 }

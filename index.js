@@ -11,7 +11,7 @@ const pogo = require('./pogo-th0rnleaf')
 const { run, hour2meridian } = require('./utils')
 
 const FORECASTOFFSET = 0
-const HOURS = new Array(3).fill(0-2).map((v, i) => new String((24+v+i*8)%24).padStart(2, '0')) // DEBUG: for the off-DST months it started at 0
+const HOURS = new Array(3).fill(0+10).map((v, i) => new String((24+v+i*8)%24).padStart(2, '0')) // DEBUG: for the off-DST months it started at 0
 // const HOURS = new Array(24).fill().map((_, i) => `${i}`.padStart(2, '0')) // Debug: ALL DAY, EVERY DAY
 const JSONDB = require('node-json-db')
 
