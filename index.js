@@ -57,9 +57,7 @@ run(async () => {
       const embed = {
         // title: `${locations[key].name}`,
         footer: {
-          text: `${
-            ({'00': 'midnight', '08': 'morning', '16': 'afternoon'})[weathers[0].queryhour]
-          } forecast, ${ weathers[0].querydate }`
+          text: `hour ${weathers[0].queryhour}, ${ weathers[0].querydate }`
         },
         fields: [{
           name: locations[key].name, 
