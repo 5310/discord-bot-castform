@@ -37,7 +37,7 @@ run(async () => {
       // Get forecast and predictions
       const weathers$ = pipe(
         merge(
-          ...HOURS.map(hour => timer(new Date(`2018-01-01T${hour}:15${location.timezone}`), 24*60*60*1000)),
+          ...HOURS.map(hour => timer(new Date(`2018-01-01T${hour}:05${location.timezone}`), 24*60*60*1000)),
           // of(0) //DEBUG: Triggers query at start even if it's not time
         ),
         map(_ => location),

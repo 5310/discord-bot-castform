@@ -8,7 +8,7 @@ And if you do play around Kolkata feel free to add the [instance](https://discor
 
 ## Install
 
-This is a Node.js project.
+This is a Node.js project. It also makes of of a lot of ES2015+ so use at least Node 10.x I myself will always be on the latest unstable.
 
 Consider using [pnpm](http://pnpm.js.org) to fetch dependencies since that's what I use myself, and Glitch.com does too.
 
