@@ -2,6 +2,8 @@ scratch/
 public/
 views/
 data/
+config.json
+locations.json
 .glitch*
 .restart
 weather_*.json
