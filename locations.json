@@ -1,12 +1,15 @@
 {  
-  "kolkata":{  
+  "kolkata":{
+    "key": "<AW-KEY>",
     "name":"Kolkata",
     "id":"206690",
     "timezone":"+05:30"
   },
-  "saltlake":{  
+  "saltlake":{
+    "key": "<AW-KEY>",
     "name":"Saltlake",
     "id":"3318389",
-    "timezone":"+05:30"
+    "timezone":"+05:30",
+    "disabled": true,
   }
 }
