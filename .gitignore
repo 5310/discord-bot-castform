@@ -6,4 +6,5 @@ config.json
 locations.json
 .glitch*
 .restart
+watch.json
 weather_*.json
