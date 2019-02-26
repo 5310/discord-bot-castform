@@ -1,4 +1,7 @@
+scratch/
 public/
 views/
-config.json
+data/
+.glitch*
+.restart
 weather_*.json
