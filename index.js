@@ -14,20 +14,18 @@ const { run, hour2meridian } = require('./utils')
 
 const JSONDB = require('node-json-db')
 
-
-
 const PULLHOUR = 2 // NOTE: apparently pull-hour/query-hour-offset changes every now and then without much rhyme or reason :|
-const HOURS = 
+const HOURS =
       new Array(24).fill().map((_, i) => `${i}`.padStart(2, '0')) || // Debug: ALL DAY, EVERY DAY
-      new Array(3).fill(0+PULLHOUR).map((v, i) => new String((24+v+i*8)%24).padStart(2, '0'))
+      new Array(3).fill(0 + PULLHOUR).map((v, i) => String((24 + v + i * 8) % 24).padStart(2, '0'))
 
-run(async () => {  
+run(async () => {
   // Await the bot
-  const client = await bot.client
+  await bot.client
 
   // Load locations to check
   const locations = new JSONDB('locations', true, true).getData('/')
-  
+
   // Setup callbags
   Object.keys(locations)
     .filter(location => ['kolkata'].includes(location)) // Debug: Quickly filter locations when testing
@@ -37,12 +35,12 @@ run(async () => {
       // Get forecast and predictions
       const weathers$ = pipe(
         merge(
-          ...HOURS.map(hour => timer(new Date(`2018-01-01T${hour}:05${location.timezone}`), 24*60*60*1000)),
+          ...HOURS.map(hour => timer(new Date(`2018-01-01T${hour}:05${location.timezone}`), 24 * 60 * 60 * 1000)),
           // of(0) //DEBUG: Triggers query at start even if it's not time
         ),
         map(_ => location),
         aw.query$,
-        map(weathers => weathers.map(({epoch, querydate, queryhour, date, hour, ...forecast}) => ({ 
+        map(weathers => weathers.map(({ epoch, querydate, queryhour, date, hour, ...forecast }) => ({
           epoch,
           querydate,
           queryhour,
@@ -69,27 +67,27 @@ run(async () => {
             text: `${weathers[0].querydate}T${weathers[0].queryhour}${location.timezone}`
           },
           fields: [{
-            name: locations[key].name, 
-            value: '​', 
+            name: locations[key].name,
+            value: '​',
             inline: true
           }]
-            .concat(weathers.slice(0, 8).map(({hour, prediction}) => { // DEBUG: Next 8 hours
+            .concat(weathers.slice(0, 8).map(({ hour, prediction }) => { // DEBUG: Next 8 hours
               const superficials = Object.keys(prediction.superficial)
-                .filter(k => prediction.superficial[k] && k != prediction.dominant)
+                .filter(k => prediction.superficial[k] && k !== prediction.dominant)
                 .map(k => pogo.labelEmoteMap[k])
               return {
-                name: hour2meridian(parseInt(hour)), 
-                value: `${ 
-                  pogo.labelEmoteMap[prediction.dominant] 
-                }${ 
-                  superficials.length ? superficials.join('') : '' 
-                }`, 
+                name: hour2meridian(parseInt(hour)),
+                value: `${
+                  pogo.labelEmoteMap[prediction.dominant]
+                }${
+                  superficials.length ? superficials.join('') : ''
+                }`,
                 inline: true
               }
             }))
         }
         console.log(embed)
-        bot.send({embed})
+        bot.send({ embed })
       })(weathers$)
     })
-  })
+})
