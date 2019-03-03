@@ -2,6 +2,7 @@ scratch/
 public/
 views/
 data/
+node_modules/
 config.json
 locations.json
 .glitch*
