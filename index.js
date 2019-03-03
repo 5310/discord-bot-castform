@@ -29,16 +29,21 @@ run(async () => {
     .forEach(key => {
       const location = locationsDB[key]
 
-      // Get AW forecasts
-      const aw$ = pipe(
-        merge(
-          ...HOURS.map(hour => timer(new Date(`2018-01-01T${hour}:30${location.timezone}`), 24 * 60 * 60 * 1000)),
-          of(0) // DEBUG: Triggers query at start even if it's not time
-        ),
+      const hour$ = merge(
+        timer(DateTime.fromObject({ hour: 0, zone: location.timezone }).toJSDate(), 60 * 60 * 1000),
+        of(0) // DEBUG: Triggers query at start even if it's not time
+      )
+
+      // forecasts
+      pipe(
+        hour$,
         map(_ => location),
         aw.query$,
-        // tap(console.log), // DEBUG:,
-        share,
+        tap(console.log), // DEBUG:
+        forEach(weathers => {
+          const awDB = new JSONDB(`data/aw/${key}/${weathers[0].querydate}`, true, true)
+          awDB.push(`/${weathers[0].queryhour}`, weathers, true)
+        }),
       )
 
       // TODO: Save AW forecasts
