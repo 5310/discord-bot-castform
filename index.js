@@ -1,27 +1,29 @@
-const { pipe, map, forEach, merge, share } = require('callbag-basics')
+const { run, hour2meridian } = require('./utils')
+
+const JSONDB = require('node-json-db')
+
+const { pipe, map, forEach, merge } = require('callbag-basics')
 const tap = require('callbag-tap')
 const timer = require('callbag-date-timer')
 const of = require('callbag-of')
 
-// require('./server')
-// const bot = require('./bot')
+const { flatten, zipObj } = require('arare')
 
 const aw = require('./aw')
 const pogo = require('./pogo')
 const model = require('./model-th0rnleaf')
 
-const { run, hour2meridian } = require('./utils')
+// require('./server')
+// const bot = require('./bot')
 
-const JSONDB = require('node-json-db')
-
-const HOURS = new Array(24).fill().map((_, i) => `${i}`.padStart(2, '0'))
+const { DateTime } = require('luxon')
 
 run(async () => {
   // Await the bot
   // await bot.client
 
   // Load locations to check
-  const locationsDB = new JSONDB('locations', true, true).getData('/')
+  const locationsDB = new JSONDB('locations').getData('/')
 
   // Setup callbags
   Object.keys(locationsDB)
@@ -46,11 +48,30 @@ run(async () => {
         }),
       )
 
-      // TODO: Save AW forecasts
-      forEach(_ => console.log(_))(aw$)
-
-      // TODO: Compose report from past AW forecasts
-
-      // TODO: Send report
+      // reports // TODO:
+      pipe(
+        hour$,
+        map(_ => {
+          const now = DateTime.local().setZone(location.timezone)
+          return {
+            yesterday: now.minus({ day: 1 }).toISODate(),
+            today: now.toISODate(),
+            hour: now.toISOTime().slice(0, 2)
+          }
+        }),
+        tap(console.log), // DEBUG:
+        forEach(({ yesterday, today, hour }) => {
+          const aw = pipe(
+            [yesterday, today]
+              .map(date =>
+                Object.values(new JSONDB(`data/aw/${key}_${date}`).getData('/'))
+                  .map(weathers => weathers.filter(weather => weather.hour === hour))
+              ),
+            flatten,
+            flatten,
+          ).map(weather => ({ hour: weather.queryhour, ...model(weather) }))
+          console.log(aw)
+        }),
+      )
     })
 })
