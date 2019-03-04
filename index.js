@@ -2,7 +2,7 @@ const { run, flattenObj } = require('./utils')
 
 const JSONDB = require('node-json-db')
 
-const { pipe, map, share } = require('callbag-basics')
+const { pipe, map } = require('callbag-basics')
 const operate = require('callbag-operate')
 const subscribe = require('callbag-subscribe')
 const tap = require('callbag-tap')
@@ -31,8 +31,6 @@ run(async () => {
     .filter(key => !locationsDB[key].disabled)
     .forEach(key => {
       const location = locationsDB[key]
-
-      const hour$ = share(timer(DateTime.fromObject({ hour: 0, zone: location.timezone }).toJSDate(), 60 * 60 * 1000))
 
       // forecasts
       const forecast = operate(
@@ -107,7 +105,7 @@ run(async () => {
 
       // run
       pipe(
-        hour$,
+        timer(DateTime.fromObject({ hour: 0, minute: location.minute || 0, zone: location.timezone }).toJSDate(), 60 * 60 * 1000),
         forecast,
         report,
         subscribe({
