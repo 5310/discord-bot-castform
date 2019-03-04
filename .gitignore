@@ -3,7 +3,10 @@ public/
 views/
 data/
 node_modules/
+config.json
+locations.json
 .glitch*
 .restart
 watch.json
 weather_*.json
+.fuse_hidden*
