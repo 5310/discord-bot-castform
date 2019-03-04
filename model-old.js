@@ -9,6 +9,7 @@ const weatherMap = ({
   partlysunnywflurries: 'partlycloudy',
   partlycloudy: 'partlycloudy',
   partlycloudywshowers: 'partlycloudy',
+  partlycloudywtstorms: 'partlycloudy',
   intermittentclouds: 'partlycloudy',
   mostlycloudy: 'cloudy',
   mostlycloudywshowers: 'cloudy',

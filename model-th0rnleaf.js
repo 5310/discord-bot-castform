@@ -13,6 +13,7 @@ const weatherMap = ({
   partlysunnywflurries: { dominant: 'partlycloudy', superficial: { snow: true } },
   partlycloudy: { dominant: 'partlycloudy', superficial: {}, windyable: true },
   partlycloudywshowers: { dominant: 'partlycloudy', superficial: { rain: true } },
+  partlycloudywtstorms: { dominant: 'partlycloudy', superficial: {}, windyable: true },
   intermittentclouds: { dominant: 'partlycloudy', superficial: {}, windyable: true },
   mostlycloudy: { dominant: 'cloudy', superficial: {}, windyable: true },
   mostlycloudywshowers: { dominant: 'cloudy', superficial: { rain: true } },
