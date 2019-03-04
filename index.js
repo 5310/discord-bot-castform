@@ -37,9 +37,8 @@ run(async () => {
       // forecasts
       const forecast = operate(
         map(_ => location),
-        // tap(_ => console.log('Getting AW predictions')),
         aw.query,
-        // tap(console.debug), // DEBUG:
+        // tap(console.debug),
         tap(weathers => {
           console.info({
             timestamp: DateTime.local().setZone(location.timezone).toISO(),
@@ -54,7 +53,7 @@ run(async () => {
         }),
       )
 
-      // reports // TODO:
+      // reports
       const report = operate(
         map(_ => DateTime.local().setZone(location.timezone)),
         map(now => range(0, 12, 1) // get past predictions of next twelve hours
@@ -74,7 +73,7 @@ run(async () => {
                 .reduce(...flattenObj)
           })).reduce(...flattenObj)
         ),
-        // tap(console.debug), // DEBUG:
+        // tap(console.debug),
         map(predictions => {
           const now = DateTime.local().setZone(location.timezone).startOf('hour')
           // const clocks = '🕧 🕜 🕝 🕟 🕟 🕠 🕡 🕢 🕣 🕤 🕥 🕦'.split(' ')
