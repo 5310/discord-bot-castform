@@ -1,16 +1,18 @@
-const { run } = require('./utils')
+const { run, flattenObj } = require('./utils')
 
 const JSONDB = require('node-json-db')
 
-const { pipe, map, forEach, share } = require('callbag-basics')
+const { pipe, map, share } = require('callbag-basics')
+const operate = require('callbag-operate')
+const subscribe = require('callbag-subscribe')
 const tap = require('callbag-tap')
 const timer = require('callbag-date-timer')
 
 const { flatten, range } = require('arare')
 
 const aw = require('./aw')
-const pogo = require('./pogo')
 const model = require('./model-th0rnleaf')
+const pogo = require('./pogo')
 
 // require('./server')
 // const bot = require('./bot')
@@ -33,26 +35,31 @@ run(async () => {
       const hour$ = share(timer(DateTime.fromObject({ hour: 0, zone: location.timezone }).toJSDate(), 10 * 1000))
 
       // forecasts
-      pipe(
-        hour$,
+      const forecast = operate(
         map(_ => location),
-        aw.query$,
-        // tap(console.log), // DEBUG:
-        forEach(weathers => {
-          console.log('Saving AW prediction')
+        // tap(_ => console.log('Getting AW predictions')),
+        aw.query,
+        // tap(console.debug), // DEBUG:
+        tap(weathers => {
+          console.info({
+            timestamp: DateTime.local().setZone(location.timezone).toISO(),
+            info: 'predictions',
+            location: key,
+            payload: weathers
+              .map(({ date, hour, label }) => ({ [`${date}T${hour}`]: label }))
+              .reduce(...flattenObj)
+          })
           const awDB = new JSONDB(`data/aw/${key}/${weathers[0].querydate}`, true, true)
           awDB.push(`/${weathers[0].queryhour}`, weathers, true)
         }),
       )
 
       // reports // TODO:
-      pipe(
-        hour$,
-        // tap(console.log), // DEBUG:
+      const report = operate(
         map(_ => DateTime.local().setZone(location.timezone)),
-        map(now => range(0, 12, 1)
+        map(now => range(0, 12, 1) // get past predictions of next twelve hours
           .map(x => now.plus({ hours: x + 1 }).toISOTime().slice(0, 2)) // the next twelve hours
-          .map(hour => ({ [hour]: // all past predictions of given hour
+          .map(hour => ({ [hour]: // get past predictions of given hour
               pipe(
                 [-1, 0]
                   .map(x => now.plus({ day: x }).toISODate())
@@ -64,10 +71,49 @@ run(async () => {
                 flatten,
               )
                 .map(weather => ({ [weather.queryhour]: model(weather) }))
-                .reduce((a, x) => ({ ...a, ...x }), {}) // flatten object
-          })).reduce((a, x) => ({ ...a, ...x }), {}) // flatten object
+                .reduce(...flattenObj)
+          })).reduce(...flattenObj)
         ),
-        forEach(console.log)
+        // tap(console.debug), // DEBUG:
+        map(predictions => {
+          const now = DateTime.local().setZone(location.timezone)
+          const clocks = '🕧🕜🕝🕟🕠🕡🕣🕤🕥🕦'.split('')
+          const report = [
+            `**${location.name}** ${now.toISODate()}T${now.toISOTime().slice(0, 2)}`,
+            '',
+            '       ' + range(0, 12, 1).map(x => now.minus({ hours: x + 1 }).hour % 12).map(hour => clocks[hour]).join(' '), // FIXME: clocks break
+            '',
+            ...Object.keys(predictions)
+              .map((hour, i) => {
+                const labels = range(0, 12 - i, 1).map(x => now.minus({ hours: x + 1 }).toISOTime().slice(0, 2))
+                  .map(queryhour => pogo.labelEmoteMap[predictions[hour][queryhour] ? predictions[hour][queryhour].dominant : 'none'])
+                  .join('')
+                return `\`${hour}\` ${labels}`
+              }),
+            '·'
+          ]
+          return report
+        }),
+        tap(report => {
+          console.info({
+            timestamp: DateTime.local().setZone(location.timezone).toISO(),
+            info: 'report',
+            location: key,
+            payload: report
+          })
+          // bot.send(report.join('\n'))
+        }),
+      )
+
+      // run
+      pipe(
+        hour$,
+        // forecast,
+        report,
+        subscribe({
+          complete: () => console.log('done'),
+          error: console.error
+        })
       )
     })
 })

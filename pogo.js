@@ -7,7 +7,7 @@ const labelEmoteMap = {
   fog: '🌫',
   windy: '🎐',
   alert: '⚠',
-  none: '🚫',
+  none: '⚫',
 }
 
 module.exports = {

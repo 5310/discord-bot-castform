@@ -5,9 +5,9 @@ const { utc2istString } = require('./utils')
 
 const API = location => `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${location.id}?apikey=${location.key}&details=true&metric=true`
 
-const query$ = location$ => pipe(
+const query = location$ => pipe(
   location$,
-  tap(location => console.log(`AccuWeather at ${location.name}`, API(location))),
+  // tap(location => console.log(`AccuWeather at ${location.name}`, API(location))),
   map(location => fromPromise(fetch(API(location)).then(res => res.json()))),
   flatten,
   filter(Array.isArray),
@@ -54,9 +54,9 @@ const query$ = location$ => pipe(
       uv, // uv index
     }))
   }),
-  // tap(console.log) // DEBUG:
+  // tap(console.debug), // DEBUG:
 )
 
 module.exports = {
-  query$,
+  query,
 }

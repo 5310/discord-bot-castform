@@ -29,3 +29,5 @@ exports.objectFilter = (pred, obj) => Object.entries(obj)
 exports.pick = (keys, obj) => Object.entries(obj)
   .filter(([key]) => keys.includes(key))
   .reduce((obj, [key, val]) => Object.assign(obj, { [key]: val }), {})
+
+exports.flattenObj = [(a, x) => ({ ...a, ...x }), {}]
