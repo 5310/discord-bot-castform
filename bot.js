@@ -35,7 +35,7 @@ module.exports = {
   config,
   send,
   client: new Promise((resolve, reject) => client.on('ready', () => {
-    // console.log('Castform is ready')
+    console.log('Discord bot is ready')
     resolve(client)
   })
   ),

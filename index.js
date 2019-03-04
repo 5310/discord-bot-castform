@@ -14,7 +14,7 @@ const aw = require('./aw')
 const defaultModel = require('./model-th0rnleaf')
 const pogo = require('./pogo')
 
-// require('./server')
+require('./server')
 const bot = require('./bot')
 
 const { DateTime } = require('luxon')
@@ -22,6 +22,8 @@ const { DateTime } = require('luxon')
 run(async () => {
   // Await the bot
   await bot.client
+
+  console.log('Castform is running')
 
   // Load locations to check
   const locationsDB = new JSONDB('locations').getData('/')
