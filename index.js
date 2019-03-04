@@ -11,7 +11,7 @@ const timer = require('callbag-date-timer')
 const { flatten, range } = require('arare')
 
 const aw = require('./aw')
-const model = require('./model-th0rnleaf')
+const defaultModel = require('./model-th0rnleaf')
 const pogo = require('./pogo')
 
 // require('./server')
@@ -31,6 +31,7 @@ run(async () => {
     .filter(key => !locationsDB[key].disabled)
     .forEach(key => {
       const location = locationsDB[key]
+      const model = location.model ? require(`./model-${location.model}`) : defaultModel
 
       // forecasts
       const forecast = operate(
@@ -48,6 +49,16 @@ run(async () => {
           })
           const awDB = new JSONDB(`data/aw/${key}/${weathers[0].querydate}`, true, true)
           awDB.push(`/${weathers[0].queryhour}`, weathers, true)
+          if (location.model) {
+            const modelDB = new JSONDB(`data/model/${key}/${weathers[0].querydate}`, true, true)
+            modelDB.push(`/${weathers[0].queryhour}`, weathers.map(weather => ({
+              querydate: weather.querydate,
+              queryhour: weather.queryhour,
+              date: weather.date,
+              hour: weather.hour,
+              model: model(weather)
+            })), true)
+          }
         }),
       )
 

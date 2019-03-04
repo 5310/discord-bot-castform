@@ -4,7 +4,8 @@
     "name": "Kolkata",
     "id": "206690",
     "timezone": "Asia/Kolkata",
-    "minute": 30
+    "minute": 30,
+    "model": "th0rnleaf"
   },
   "saltlake":{
     "key": "<AW-KEY>",
