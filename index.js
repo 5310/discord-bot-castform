@@ -1,13 +1,12 @@
-const { run, hour2meridian } = require('./utils')
+const { run } = require('./utils')
 
 const JSONDB = require('node-json-db')
 
-const { pipe, map, forEach, merge } = require('callbag-basics')
+const { pipe, map, forEach, share } = require('callbag-basics')
 const tap = require('callbag-tap')
 const timer = require('callbag-date-timer')
-const of = require('callbag-of')
 
-const { flatten, zipObj } = require('arare')
+const { flatten, range } = require('arare')
 
 const aw = require('./aw')
 const pogo = require('./pogo')
@@ -31,18 +30,16 @@ run(async () => {
     .forEach(key => {
       const location = locationsDB[key]
 
-      const hour$ = merge(
-        timer(DateTime.fromObject({ hour: 0, zone: location.timezone }).toJSDate(), 60 * 60 * 1000),
-        of(0) // DEBUG: Triggers query at start even if it's not time
-      )
+      const hour$ = share(timer(DateTime.fromObject({ hour: 0, zone: location.timezone }).toJSDate(), 10 * 1000))
 
       // forecasts
       pipe(
         hour$,
         map(_ => location),
         aw.query$,
-        tap(console.log), // DEBUG:
+        // tap(console.log), // DEBUG:
         forEach(weathers => {
+          console.log('Saving AW prediction')
           const awDB = new JSONDB(`data/aw/${key}/${weathers[0].querydate}`, true, true)
           awDB.push(`/${weathers[0].queryhour}`, weathers, true)
         }),
@@ -51,27 +48,26 @@ run(async () => {
       // reports // TODO:
       pipe(
         hour$,
-        map(_ => {
-          const now = DateTime.local().setZone(location.timezone)
-          return {
-            yesterday: now.minus({ day: 1 }).toISODate(),
-            today: now.toISODate(),
-            hour: now.toISOTime().slice(0, 2)
-          }
-        }),
-        tap(console.log), // DEBUG:
-        forEach(({ yesterday, today, hour }) => {
-          const aw = pipe(
-            [yesterday, today]
-              .map(date =>
-                Object.values(new JSONDB(`data/aw/${key}_${date}`).getData('/'))
-                  .map(weathers => weathers.filter(weather => weather.hour === hour))
-              ),
-            flatten,
-            flatten,
-          ).map(weather => ({ hour: weather.queryhour, ...model(weather) }))
-          console.log(aw)
-        }),
+        // tap(console.log), // DEBUG:
+        map(_ => DateTime.local().setZone(location.timezone)),
+        map(now => range(0, 12, 1)
+          .map(x => now.plus({ hours: x + 1 }).toISOTime().slice(0, 2)) // the next twelve hours
+          .map(hour => ({ [hour]: // all past predictions of given hour
+              pipe(
+                [-1, 0]
+                  .map(x => now.plus({ day: x }).toISODate())
+                  .map(date =>
+                    Object.values(new JSONDB(`data/aw/${key}/${date}`).getData('/'))
+                      .map(weathers => weathers.filter(weather => weather.hour === hour))
+                  ),
+                flatten,
+                flatten,
+              )
+                .map(weather => ({ [weather.queryhour]: model(weather) }))
+                .reduce((a, x) => ({ ...a, ...x }), {}) // flatten object
+          })).reduce((a, x) => ({ ...a, ...x }), {}) // flatten object
+        ),
+        forEach(console.log)
       )
     })
 })
