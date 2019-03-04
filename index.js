@@ -76,8 +76,9 @@ run(async () => {
         ),
         // tap(console.debug), // DEBUG:
         map(predictions => {
-          const now = DateTime.local().setZone(location.timezone)
-          const clocks = '🕧 🕜 🕝 🕟 🕟 🕠 🕡 🕢 🕣 🕤 🕥 🕦'.split(' ')
+          const now = DateTime.local().setZone(location.timezone).startOf('hour')
+          // const clocks = '🕧 🕜 🕝 🕟 🕟 🕠 🕡 🕢 🕣 🕤 🕥 🕦'.split(' ')
+          const clocks = '🕛 🕐 🕑 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚'.split(' ')
           const report = [
             `**${location.name}** ${now.toISODate()}T${now.toISOTime().slice(0, 2)}`,
             '',
