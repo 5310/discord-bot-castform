@@ -76,14 +76,13 @@ run(async () => {
         ),
         // tap(console.debug), // DEBUG:
         map(predictions => {
-          console.log(predictions)
           const now = DateTime.local().setZone(location.timezone)
-          const clocks = '🕧🕜🕝🕟🕠🕡🕣🕤🕥🕦'.split('')
+          const clocks = '🕧 🕜 🕝 🕟 🕟 🕠 🕡 🕢 🕣 🕤 🕥 🕦'.split(' ')
           const report = [
             `**${location.name}** ${now.toISODate()}T${now.toISOTime().slice(0, 2)}`,
             '',
-            // '       ' + range(0, 12, 1).map(x => now.minus({ hours: x }).hour % 12).map(hour => clocks[hour]).join(' '), // FIXME: clocks break
-            // '',
+            '       ' + range(0, 12, 1).map(x => now.minus({ hours: x }).hour % 12).map(hour => clocks[hour]).join(''),
+            '',
             ...Object.keys(predictions)
               .map((hour, i) => {
                 const labels = range(0, 12 - i, 1).map(x => now.minus({ hours: x }).toISOTime().slice(0, 2))
@@ -102,7 +101,7 @@ run(async () => {
             location: key,
             payload: report
           })
-          // bot.send(report.join('\n'))
+          bot.send(report.join('\n'))
         }),
       )
 
