@@ -15,13 +15,13 @@ const model = require('./model-th0rnleaf')
 const pogo = require('./pogo')
 
 // require('./server')
-// const bot = require('./bot')
+const bot = require('./bot')
 
 const { DateTime } = require('luxon')
 
 run(async () => {
   // Await the bot
-  // await bot.client
+  await bot.client
 
   // Load locations to check
   const locationsDB = new JSONDB('locations').getData('/')
@@ -32,7 +32,7 @@ run(async () => {
     .forEach(key => {
       const location = locationsDB[key]
 
-      const hour$ = share(timer(DateTime.fromObject({ hour: 0, zone: location.timezone }).toJSDate(), 10 * 1000))
+      const hour$ = share(timer(DateTime.fromObject({ hour: 0, zone: location.timezone }).toJSDate(), 60 * 60 * 1000))
 
       // forecasts
       const forecast = operate(
@@ -76,16 +76,17 @@ run(async () => {
         ),
         // tap(console.debug), // DEBUG:
         map(predictions => {
+          console.log(predictions)
           const now = DateTime.local().setZone(location.timezone)
           const clocks = '🕧🕜🕝🕟🕠🕡🕣🕤🕥🕦'.split('')
           const report = [
             `**${location.name}** ${now.toISODate()}T${now.toISOTime().slice(0, 2)}`,
             '',
-            '       ' + range(0, 12, 1).map(x => now.minus({ hours: x + 1 }).hour % 12).map(hour => clocks[hour]).join(' '), // FIXME: clocks break
-            '',
+            // '       ' + range(0, 12, 1).map(x => now.minus({ hours: x }).hour % 12).map(hour => clocks[hour]).join(' '), // FIXME: clocks break
+            // '',
             ...Object.keys(predictions)
               .map((hour, i) => {
-                const labels = range(0, 12 - i, 1).map(x => now.minus({ hours: x + 1 }).toISOTime().slice(0, 2))
+                const labels = range(0, 12 - i, 1).map(x => now.minus({ hours: x }).toISOTime().slice(0, 2))
                   .map(queryhour => pogo.labelEmoteMap[predictions[hour][queryhour] ? predictions[hour][queryhour].dominant : 'none'])
                   .join('')
                 return `\`${hour}\` ${labels}`
@@ -108,7 +109,7 @@ run(async () => {
       // run
       pipe(
         hour$,
-        // forecast,
+        forecast,
         report,
         subscribe({
           complete: () => console.log('done'),

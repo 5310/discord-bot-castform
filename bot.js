@@ -5,7 +5,7 @@ const configDb = new JSONDB('config', true, true)
 const config = configDb.getData('/') || {}
 
 const client = new Discord.Client()
-client.login(process.env.DISCORDKEY)
+client.login(configDb.getData('/key'))
 
 client.on('message', message => {
   if (message.isMentioned(client.user)) {
