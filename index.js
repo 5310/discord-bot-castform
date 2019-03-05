@@ -68,7 +68,9 @@ run(async () => {
       const report = operate(
         map(_ => DateTime.local().setZone(location.timezone)),
         map(now => range(0, 12, 1) // get past predictions of next twelve hours
-          .map(x => now.plus({ hours: x + 1 }).toISOTime().slice(0, 2)) // the next twelve hours
+          .map(x => now.plus({ hours: x + 1 }))
+          .sort((a, b) => a.toMillis() - b.toMillis())
+          .map(dt => dt.toISOTime().slice(0, 2))
           .map(hour => ({ [hour]: // get past predictions of given hour
               pipe(
                 [-1, 0]
