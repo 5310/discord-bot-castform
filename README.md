@@ -2,9 +2,7 @@
 
 This is a bot that, given some location, queries AccuWeather and converts it into in-game weather forecasts for Pokémon GO.
 
-Since I can't afford to get a commercial AW key to serve the entire planet, I've built this solely for personal use. If you _don't_ play in Kolkata, India, you would have to run your own instance :D
-
-And if you do play around Kolkata feel free to add the [instance](https://discordapp.com/oauth2/authorize?client_id=490785142940500005&scope=bot&permissions=19520) I run.
+Since I can't afford to get a commercial AW key to serve the entire planet, I've built this solely for personal use. Feel free to run your own instance though :D
 
 ## Install
 
@@ -18,9 +16,9 @@ Consider using [pnpm](http://pnpm.js.org) to fetch dependencies since that's wha
 
 The locations are configured in the `location.json` file.
 
-It should be pretty self-explanatory from the default config for Kolkata: An object where the keys are shorthand names for the weather supercells you want to query, with longer names defined within the value object alongside the essential AccuWeather location ID.
+It should be pretty self-explanatory from the placeholder config for Kolkata: An object where the keys are shorthand names for the weather supercells you want to query, with longer names defined within the value object alongside the essential AccuWeather location ID, API Key, timezone, when to pull forecasts every hour, and an optional custom model name.
 
-You can get the AccuWeather location ID for your location by simply visiting your desired area from a browser and copying the id, like so: 
+You can get the AccuWeather location ID for your location by simply visiting your desired area from a browser and copying the id, like so:
 
 ```
 https://www.accuweather.com/en/in/kolkata/206690/weather-forecast/206690
@@ -31,21 +29,27 @@ In my city the weather cells are definitely level 10 S2 cells.
 
 ### AccuWeather API Key
 
-You'll need one from [AccuWeather APIs](https://developer.accuweather.com).
+You'll need at least _one_ from [AccuWeather APIs](https://developer.accuweather.com).
 
-A free one will do, unless you add far too many locations and run out of your daily limit of 50 calls. That gives you 16 locations to query three times a day. 
+A free one will do, unless you add far too many locations and run out of your daily limit of 50 calls.
 
-You'd need to set this as an environmental variable called `AWKEY`.
-
-...Although you'll eventually want to query hourly when the pull hours change! At this stage, this is most easily done just by modifying `index.js`. The constant that sets the pull hours is called `PULLHOUR`. There are other handy debug helpers commented out within the file.
+You'd need to set this as part of your location in `locations.json`.
 
 ### Discord Bot Setup
 
-Similarly, you'd need to define your Discord bot's secret as an environment variable called `DISCORDKEY`.
+Similarly, you'd need to define your Discord bot's secret in `config.json`.
+
+A placeholder file is included, and only has one field so it should be pretty simple to start with. Eventually though, this file will store configs from servers that use your bot.
 
 The bot needs at least the following permissions number: `19520`
 
 You can refer to [An Idiot's Guide](https://anidiots.guide/) for more information. No, that's not me calling _you_ one, I didn't write the guide :D
+
+### Data Storage
+
+By default the bot will save all forecast data pulled from AccuWeather to dist under the `data/aw/<location>/` folders. And if you specified a custom model for your location, it'll save converted in-game predictions too, even though this information can also be directly derived from the AW data alone.
+
+The AW data is needed used to compile reports from past forecasts every hour. If you want to delete these files, make sure to leave at least the last two days.
 
 ## Usage
 
@@ -55,18 +59,6 @@ Just @mention the bot with a channel:
 
 `@Castform setChannel #weather`
   
-Make sure it gets write and embed access to that channel, ofc. 
+Make sure it gets write and embed access to that channel, ofc.
 
 Bear in mind that only one active channel possible per server for now. And by default you will only get forecasts three times a day starting at midnight five minutes past the hour.
-
-### View Saved Weather Data
-
-The bot also saves all forecast weather to disk that you can view with the following REST queries:
-
-`<bot>/weather/:location`
-
-Returns all the saved weather for that `location` if any.
-
-`<bot>/weather/:location/:year-:month-:day`
-
-Returns that specific date for that specific `location` if any.
