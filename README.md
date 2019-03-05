@@ -2,7 +2,13 @@
 
 This is a bot that, given some location, queries AccuWeather and converts it into in-game weather forecasts for Pokémon GO.
 
-Since I can't afford to get a commercial AW key to serve the entire planet, I've built this solely for personal use. Feel free to run your own instance though :D
+In the distant past of 2018 Pokémon GO used to pull the forecasts from AccuWeather at predictable times of the day. We could reliably predict the in-game weather by just running those hours through our various models. But that's no longer the case, so the bot now scans every hour and reports all the forecasts for the next twelve hours like so:
+
+![screenshot](./screenshot.png)
+
+<sub>Look, Discord Flavored Markdown doesn't do tables. This is the best I can do. The most recent forecast is the leftmost column of emoji, and the rightmost column is the earliest. Naturally, the further into the future you go, the fewer forecasts are available, forming this nice triangle. And those black orbs are forecasts where no data is available for whatever reason.</sub>
+
+Now, since I can't afford to get a commercial AW key to serve the entire planet, I've built this solely for personal use. Feel free to run your own instance though :D
 
 ## Install
 
