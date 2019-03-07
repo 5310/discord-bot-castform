@@ -8,10 +8,13 @@ const API = location => `https://dataservice.accuweather.com/forecasts/v1/hourly
 const query = location$ => pipe(
   location$,
   // tap(location => console.log(`AccuWeather at ${location.name}`, API(location))),
-  map(location => fromPromise(fetch(API(location)).then(res => res.json()))),
+  map(location => fromPromise(fetch(API(location)).then(res => res.json()).then(forecast => ({ location, forecast })))),
   flatten,
-  filter(Array.isArray),
-  map(forecast => {
+  filter(payload => Array.isArray(payload.forecast)),
+  // tap(console.debug), // DEBUG:
+  map(payload => {
+    const { location, forecast } = payload
+    console.log(location)
     const now = DateTime.local().setZone(location.timezone)
     return forecast.map(({
       EpochDateTime: epoch,
