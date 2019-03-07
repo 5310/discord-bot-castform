@@ -1,6 +1,6 @@
 {
   "name": "discord-bot-castform",
-  "version": "2.0.0-rc2",
+  "version": "2.0.0",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
