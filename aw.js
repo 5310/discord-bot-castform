@@ -1,7 +1,7 @@
 const { pipe, map, fromPromise, flatten, filter } = require('callbag-basics')
 const tap = require('callbag-tap')
 const fetch = require('cross-fetch')
-const { utc2istString } = require('./utils')
+const { DateTime } = require('luxon')
 
 const API = location => `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${location.id}?apikey=${location.key}&details=true&metric=true`
 
@@ -12,7 +12,7 @@ const query = location$ => pipe(
   flatten,
   filter(Array.isArray),
   map(forecast => {
-    const now = utc2istString(new Date())
+    const now = DateTime.local().setZone(location.timezone)
     return forecast.map(({
       EpochDateTime: epoch,
       DateTime: datetime,
@@ -32,8 +32,8 @@ const query = location$ => pipe(
       UVIndex: uv,
     }) => ({
       epoch,
-      querydate: now.slice(0, 10), // date of the api call
-      queryhour: now.slice(11, 13), // hour of the api call
+      querydate: now.toISODate(), // date of the api call
+      queryhour: now.toISOTime().slice(0, 2), // hour of the api call
       date: datetime.slice(0, 10), // date of the forecast
       hour: datetime.slice(11, 13), // hour of the forecast
       label: label
