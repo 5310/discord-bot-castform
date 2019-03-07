@@ -96,18 +96,15 @@ run(async () => {
           const now = DateTime.local().setZone(location.timezone).startOf('hour')
           const clocks = '🕛 🕐 🕑 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚'.split(' ')
           const report = [
-            `**${location.name}** ${now.toISODate()}T\`${now.toISOTime().slice(0, 2)}\``,
-            '',
-            '       ' + range(0, 12, 1).map(x => now.minus({ hours: x }).hour % 12).map(hour => clocks[hour]).join(''),
-            '',
-            ...pipe(
-              predictions,
-              map(prediction => `\`${prediction.hour.toISOTime().slice(0, 2)}\` ${
+            `**${location.name}** \`${now.toISODate()}T${now.toISOTime().slice(0, 2)}\``,
+            `       ${range(0, 12, 1).map(x => now.minus({ hours: x }).hour % 12).map(hour => clocks[hour]).join('')}`,
+            ...predictions
+              .map(prediction => `\`${prediction.hour.toISOTime().slice(0, 2)}\` ${
                 prediction.forecasts
                   .map(forecast => pogo.labelEmoteMap[forecast ? forecast.weather.dominant : 'none'])
                   .join('')
-              }`)
-            )
+              }`),
+            '—'
           ]
           return report
         }),
