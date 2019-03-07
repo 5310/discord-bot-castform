@@ -1,5 +1,5 @@
 const { pipe, map, fromPromise, flatten, filter } = require('callbag-basics')
-const tap = require('callbag-tap')
+const tap = require('callbag-tap') // eslint-disable-line no-unused-vars
 const fetch = require('cross-fetch')
 const { DateTime } = require('luxon')
 
