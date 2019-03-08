@@ -88,7 +88,7 @@ run(async () => {
               }
               return predictions
             },
-            range(0, 12, 1).map(x => ({ hour: now.plus({ hour: x }), forecasts: fill(12 - x, undefined) }))
+            range(0, 12, 1).map(x => ({ hour: now.plus({ hour: x + 1 }), forecasts: fill(12 - x, undefined) }))
           )
         )),
         // CB.tap(console.debug), // DEBUG:
