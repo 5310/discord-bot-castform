@@ -18,6 +18,8 @@ Consider using [pnpm](http://pnpm.js.org) to fetch dependencies since that's wha
 
 ## Configure
 
+The bot uses two config files, template versions of which are included in the repository and named `template.*.json`. Duplicate them and remove the `template.` bits from the filenames to make the instance read them.
+
 ### Locations
 
 The locations are configured in the `location.json` file.
