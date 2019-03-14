@@ -13,6 +13,7 @@
     "id": "3318389",
     "timezone": "Asia/Kolkata",
     "minute": 30,
+    "model": "old",
     "disabled": true
   }
 }
