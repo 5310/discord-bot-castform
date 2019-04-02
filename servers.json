@@ -1,0 +1,27 @@
+{  
+  "baconland":{  
+    "filter":"depere",
+    "guild":"163067626392649738",
+    "channel":"543520154294812683"
+  },
+  "house of valor":{  
+    "filter":"greenbaywest, greenbayeast, depere",
+    "guild":"423333427371180033",
+    "channel":"544581547492245504"
+  },
+  "dickenson county":{
+      "filter":"ironmt, kingsford, niagara",
+      "guild":"428290604385173527",
+      "channel":"550514352109912064"
+  },
+  "green bay pogo":{
+      "filter":"greenbaywest, greenbayeast, depere",
+      "guild":"273683264089096192",
+      "channel":"551110510095892510"
+  },
+  "fox valley pogo":{
+      "filter":"appleton, kaukauna, kimberly, menasha",
+      "guild":"296717748007075841",
+      "channel":"553613202466799644"
+  }
+}

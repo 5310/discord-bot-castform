@@ -14,11 +14,27 @@ const { run, hour2meridian } = require('./utils')
 
 const JSONDB = require('node-json-db')
 
+//invite link
+//https://discordapp.com/oauth2/authorize?client_id=543499399989559306&scope=bot&permissions=19520
 
+//https://www.reddit.com/r/TheSilphRoad/comments/amb4ki/predicting_ingame_weather_yes_you_can/
+// pull times at 5 am, 1 am, or midnight...
 
-const PULLHOUR = 2 // NOTE: apparently pull-hour/query-hour-offset changes every now and then without much rhyme or reason :|
+function clearList(channel){
+  let messagecount = parseInt(100);      //amoutn of messages to check (set to high ???)
+  channel.fetchMessages({limit: messagecount}).then(messages => { //get ^ amount of messages
+    messages.filter(messChk => { //filter messages
+      if (messChk.author.id == "543499399989559306"){ //filter by if from bot 
+          messChk.delete(); //if from bot. do thing
+      }
+
+    });
+  }); 
+}
+
+const PULLHOUR = 8 // NOTE: apparently pull-hour/query-hour-offset changes every now and then without much rhyme or reason :|
 const HOURS = 
-      new Array(24).fill().map((_, i) => `${i}`.padStart(2, '0')) || // Debug: ALL DAY, EVERY DAY
+      //new Array(24).fill().map((_, i) => `${i}`.padStart(2, '0')) || // Debug: ALL DAY, EVERY DAY
       new Array(3).fill(0+PULLHOUR).map((v, i) => new String((24+v+i*8)%24).padStart(2, '0'))
 
 run(async () => {  
@@ -27,17 +43,23 @@ run(async () => {
 
   // Load locations to check
   const locations = new JSONDB('locations', true, true).getData('/')
+
+  //load filters by server
+  const servers = new JSONDB('servers', true, true).getData('/')
+  
+  // setup filters
+
   
   // Setup callbags
   Object.keys(locations)
-    .filter(location => ['kolkata'].includes(location)) // Debug: Quickly filter locations when testing
+    //.filter(location => ['depere'].includes(location)) // Debug: Quickly filter locations when testing
     .forEach(key => {
       const location = locations[key]
 
       // Get forecast and predictions
       const weathers$ = pipe(
         merge(
-          ...HOURS.map(hour => timer(new Date(`2018-01-01T${hour}:05${location.timezone}`), 24*60*60*1000)),
+          ...HOURS.map(hour => timer(new Date(`2019-01-01T${hour}:06${location.timezone}`), 24*60*60*1000)),
           // of(0) //DEBUG: Triggers query at start even if it's not time
         ),
         map(_ => location),
@@ -89,7 +111,20 @@ run(async () => {
             }))
         }
         console.log(embed)
-        bot.send({embed})
+        
+        Object.keys(servers)
+          .forEach(key2 => {
+            const server = servers[key2]
+            //clearList(client.channels.get(server.channel))
+
+            //setup filter
+            if(server.filter.includes(key)){
+              client.channels.get(server.channel).send({embed})
+            }
+            //end by server loop
+        })
+        //bot.send({embed})
       })(weathers$)
     })
+
   })

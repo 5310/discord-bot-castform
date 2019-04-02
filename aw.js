@@ -2,9 +2,9 @@ const { pipe, map, fromPromise, flatten, filter } = require('callbag-basics')
 const tap = require('callbag-tap')
 const fetch = require('cross-fetch')
 const { utc2istString } = require('./utils')
+const secrets = require('./secret.json')
 
-
-const API = location => `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${location}?apikey=${process.env.AWKEY}&details=true&metric=true`
+const API = location => `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${location}?apikey=${secrets.AWKEY}&details=true&metric=true`
 const query$ = location$ => pipe(
   location$,
   tap(location => console.log(`AccuWeather at ${location.name}`)),

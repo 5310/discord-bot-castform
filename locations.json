@@ -1,12 +1,52 @@
 {  
-  "kolkata":{  
-    "name":"Kolkata",
-    "id":"206690",
-    "timezone":"+05:30"
+  "greenbaywest":{  
+    "name":"West GB/Ashwaubenon",
+    "id":"2249504",
+    "timezone":"-05:00"
   },
-  "saltlake":{  
-    "name":"Saltlake",
-    "id":"3318389",
-    "timezone":"+05:30"
+  "greenbayeast":{  
+    "name":"East GB",
+    "id":"1868",
+    "timezone":"-05:00"
+  },
+  "depere":{  
+    "name":"De Pere",
+    "id":"336545",
+    "timezone":"-05:00"
+  },
+  "ironmt":{  
+    "name":"Iron Mountain",
+    "id":"333646",
+    "timezone":"-05:00"
+  },
+  "kingsford":{  
+    "name":"Kingsford",
+    "id":"2211220",
+    "timezone":"-05:00"
+  },
+  "niagara":{  
+    "name":"Niagara",
+    "id":"2248931",
+    "timezone":"-05:00"
+  },
+  "appleton":{
+    "name":"Appleton",
+    "id":"331517",
+    "timezone":"-05:00"
+  },
+  "kaukauna":{
+    "name":"Kaukauna",
+    "id":"341472",
+    "timezone":"-05:00"
+  },
+  "kimberly":{
+    "name":"Kimberly",
+    "id":"2248667",
+    "timezone":"-05:00"
+  },
+  "menasha":{
+    "name":"Neenah/Menasha",
+    "id":"2248834",
+    "timezone":"-05:00"
   }
 }

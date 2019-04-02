@@ -2,3 +2,5 @@ public/
 views/
 config.json
 weather_*.json
+secret.json
+node_modules/

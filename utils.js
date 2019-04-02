@@ -13,7 +13,7 @@ exports.compare = (a, b) => {
   return true
 }
 
-exports.utc2istString = date => (new Date(date.valueOf() + 5.5*60*60*1000)).toISOString().slice(0, -1) + '+05:30'
+exports.utc2istString = date => (new Date(date.valueOf() + 5.5*60*60*1000)).toISOString().slice(0, -1) + '-06:00'
 
 exports.hour2meridian = hour => {
   if (hour === 0) return '12am'

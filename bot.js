@@ -1,13 +1,15 @@
 const JSONDB = require('node-json-db')
 const Discord = require("discord.js")
 const RC = require('reaction-core')
-
+const secrets = require('./secret.json')
 
 const configDb = new JSONDB('config', true, true)
 const config = configDb.getData('/') || {}
 
 const client = new Discord.Client()
-client.login(process.env.DISCORDKEY)
+client.login(secrets.DISCORDKEY)
+
+client.on('error', console.error);
 
 client.on('message', message => {
   if (message.isMentioned(client.user)) {
@@ -26,6 +28,7 @@ client.on('message', message => {
   }
 })
 
+//no need to use this send method
 const send = message => Object.keys(config)
   .map(key => ({guild: client.guilds.get(key), channelId: config[key].channel}))
   .filter(({guild}) => guild)
@@ -36,7 +39,7 @@ const send = message => Object.keys(config)
 
 module.exports = {
   config,
-  send,
+//  send, //is disabled in exports just to be sure
   client: new Promise((resolve, reject) => client.on("ready", () => {
       console.log("Castform is ready")
       resolve(client)
