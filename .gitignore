@@ -3,6 +3,7 @@ public/
 views/
 data/
 node_modules/
+.vscode/
 .glitch*
 .restart
 watch.json
