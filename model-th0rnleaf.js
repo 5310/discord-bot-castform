@@ -37,8 +37,8 @@ const weatherMap = ({
 
 const thresholds = {
   dominant: {
-    wind: 24,
-    gust: 35,
+    wind: 20,
+    gust: 29.6,
   },
   superficial: {
     // rain: 50,
@@ -53,7 +53,7 @@ const aw2pogo = ({
   gust,
 }) => {
   const weather = weatherMap[label]
-  const windy = wind >= thresholds.dominant.wind || gust >= thresholds.dominant.gust
+  const windy = wind > thresholds.dominant.wind && gust >= thresholds.dominant.gust
   const dominant = weather.windyable && windy ? 'windy' : weather.dominant
   return {
     dominant,
