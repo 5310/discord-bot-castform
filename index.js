@@ -1,6 +1,21 @@
-const { fill, filter, flatten, forEach, keys, map, range, reduce, values } = require('arare')
-const { pipe } = require('callbag-basics')
-const { flattenObj, run } = require('./utils')
+const {
+  fill,
+  filter,
+  flatten,
+  forEach,
+  keys,
+  map,
+  range,
+  reduce,
+  values
+} = require('arare')
+const {
+  pipe
+} = require('callbag-basics')
+const {
+  flattenObj,
+  run
+} = require('./utils')
 
 const CB = {
   operate: require('callbag-operate'),
@@ -12,10 +27,12 @@ const CB = {
 
 const JSONDB = require('node-json-db')
 
-const { DateTime } = require('luxon')
+const {
+  DateTime
+} = require('luxon')
 
 const aw = require('./aw')
-const defaultModel = require('./model-th0rnleaf')
+const defaultModel = require('./model-ajstewart')
 const pogo = require('./pogo')
 
 require('./server')
@@ -49,7 +66,13 @@ run(async () => {
             timestamp: DateTime.local().setZone(location.timezone).toISO(),
             info: 'predictions',
             location: key,
-            payload: weathers.map(({ date, hour, label }) => ({ [`${date}T${hour}`]: label })).reduce(...flattenObj),
+            payload: weathers.map(({
+              date,
+              hour,
+              label
+            }) => ({
+              [`${date}T${hour}`]: label
+            })).reduce(...flattenObj),
           })
           const awDB = new JSONDB(`data/aw/${key}/${weathers[0].querydate}`, true, true)
           awDB.push(`/${weathers[0].queryhour}`, weathers, true)
@@ -71,13 +94,19 @@ run(async () => {
         CB.map(_ => DateTime.local().setZone(location.timezone).startOf('hour')),
         CB.map(now => pipe(
           [-1, 0],
-          map(x => now.plus({ day: x }).toISODate()),
+          map(x => now.plus({
+            day: x
+          }).toISODate()),
           map(dt => values(new JSONDB(`data/aw/${key}/${dt}`).getData('/'))),
           flatten,
           reduce(
             (predictions, weather) => {
-              const queryhour = DateTime.fromISO(`${weather.querydate}T${weather.queryhour}`, { zone: location.timezone })
-              const hour = DateTime.fromISO(`${weather.date}T${weather.hour}`, { zone: location.timezone })
+              const queryhour = DateTime.fromISO(`${weather.querydate}T${weather.queryhour}`, {
+                zone: location.timezone
+              })
+              const hour = DateTime.fromISO(`${weather.date}T${weather.hour}`, {
+                zone: location.timezone
+              })
               const toForecast = hour.diff(now).as('hour') - 1
               const fromQuery = now.diff(queryhour).as('hour')
               if (toForecast >= 0 && toForecast < 12) {
@@ -88,7 +117,12 @@ run(async () => {
               }
               return predictions
             },
-            range(0, 12, 1).map(x => ({ hour: now.plus({ hour: x + 1 }), forecasts: fill(12 - x, undefined) }))
+            range(0, 12, 1).map(x => ({
+              hour: now.plus({
+                hour: x + 1
+              }),
+              forecasts: fill(12 - x, undefined)
+            }))
           )
         )),
         // CB.tap(console.debug), // DEBUG:
@@ -121,7 +155,11 @@ run(async () => {
 
       // run
       pipe(
-        CB.timer(DateTime.fromObject({ hour: 0, minute: location.minute || 0, zone: location.timezone }).toJSDate(), 60 * 60 * 1000),
+        CB.timer(DateTime.fromObject({
+          hour: 0,
+          minute: location.minute || 0,
+          zone: location.timezone
+        }).toJSDate(), 60 * 60 * 1000),
         // CB.timer(DateTime.local().plus({ seconds: 5 }).toJSDate(), 60 * 60 * 1000), // DEBUG:
         forecast,
         report,
