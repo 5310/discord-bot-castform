@@ -69,4 +69,4 @@ Just @mention the bot with a channel:
   
 Make sure it gets write and embed access to that channel, ofc.
 
-Bear in mind that only one active channel possible per server for now. And by default you will only get forecasts three times a day starting at midnight five minutes past the hour.
+Bear in mind that only one active channel possible per server for now. 
