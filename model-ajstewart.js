@@ -93,13 +93,11 @@ const weatherMap = ({
   },
   hazysunshine: {
     dominant: 'cloudy',
-    superficial: {},
-    windyable: true
+    superficial: {}
   },
   hazymoonlight: {
     dominant: 'cloudy',
-    superficial: {},
-    windyable: true
+    superficial: {}
   },
   dreary: {
     dominant: 'cloudy',
