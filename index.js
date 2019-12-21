@@ -156,10 +156,10 @@ run(async () => {
       // run
       pipe(
         CB.timer(DateTime.fromObject({
-          hour: 0,
+          hour: 5,
           minute: location.minute || 0,
           zone: location.timezone
-        }).toJSDate(), 60 * 60 * 1000),
+        }).toJSDate(), 8 * 60 * 60 * 1000),
         // CB.timer(DateTime.local().plus({ seconds: 5 }).toJSDate(), 60 * 60 * 1000), // DEBUG:
         forecast,
         report,
