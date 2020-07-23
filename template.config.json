@@ -1,3 +1,31 @@
 {
-    "key": "<DISCORD-KEY>"
+  "kolkata":{
+    "key": "<AW-KEY>",
+    "name": "Kolkata",
+    "id": "206690",
+    "timezone": "Asia/Kolkata",
+    "minute": 30,
+    "model": "th0rnleaf",
+    "webhooks": [
+      {
+        "id": "<DISCORD-WEBHOOK-ID>",
+        "token": "<DISCORD-WEBHOOK-TOKEN>"
+      }
+    ]
+  },
+  "saltlake":{
+    "disabled": true,
+    "key": "<AW-KEY>",
+    "name": "Saltlake",
+    "id": "3318389",
+    "timezone": "Asia/Kolkata",
+    "minute": 30,
+    "model": "old",
+    "webhooks": [
+      {
+        "id": "<DISCORD-WEBHOOK-ID>",
+        "token": "<DISCORD-WEBHOOK-TOKEN>"
+      }
+    ]
+  }
 }
