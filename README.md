@@ -1,6 +1,6 @@
 # discord-bot-castform
 
-This is a bot that, given some location, queries AccuWeather and converts it into in-game weather forecasts for Pokémon GO.
+This bot queries AccuWeather for configured locations and converts it into in-game weather forecasts for Pokémon GO.
 
 In the distant past of 2018 Pokémon GO used to pull the forecasts from AccuWeather at predictable times of the day. We could reliably predict the in-game weather by just running those hours through our various models. But that's no longer the case, so the bot now scans every hour and reports all the forecasts for the next twelve hours like so:
 
@@ -14,15 +14,10 @@ Now, since I can't afford to get a commercial AW key to serve the entire planet,
 
 This is a Node.js project. It also makes of of a lot of ES2015+ so use at least Node 10.x I myself will always be on the latest unstable.
 
-Consider using [pnpm](http://pnpm.js.org) to fetch dependencies since that's what I use myself, and Glitch.com does too.
-
 ## Configure
-
-The bot uses two config files, template versions of which are included in the repository and named `template.*.json`. Duplicate them and remove the `template.` bits from the filenames to make the instance read them.
+All the configuration for this bot is stored in a file named `config.json`. Duplicate the included `template.locations.json` and then and rename it to `config.json`. Edit this file to suit your needs.
 
 ### Locations
-
-The locations are configured in the `location.json` file.
 
 It should be pretty self-explanatory from the placeholder config for Kolkata: An object where the keys are shorthand names for the weather supercells you want to query, with longer names defined within the value object alongside the essential AccuWeather location ID, API Key, timezone, when to pull forecasts every hour, and an optional custom model name.
 
@@ -41,32 +36,22 @@ You'll need at least _one_ from [AccuWeather APIs](https://developer.accuweather
 
 A free one will do, unless you add far too many locations and run out of your daily limit of 50 calls.
 
-You'd need to set this as part of your location in `locations.json`.
+### Discord Webhook
 
-### Discord Bot Setup
+[Create webhooks](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) for the channels you need.
 
-Similarly, you'd need to define your Discord bot's secret in `config.json`.
+Inspect the webhook URLs this generates. They will contain an ID and token that you will need to add to the list of webhooks for every location in the config, like so:
 
-A placeholder file is included, and only has one field so it should be pretty simple to start with. Eventually though, this file will store configs from servers that use your bot.
+```
+https://discord.com/api/webhooks/<ID>/<token>
+```
 
-The bot needs at least the following permissions number: `19520`
+No example ID and token for you, don't want you spamming my channels ;]
 
-You can refer to [An Idiot's Guide](https://anidiots.guide/) for more information. No, that's not me calling _you_ one, I didn't write the guide :D
+A single instance of the bot can push webhooks to any number of Discord servers and channels within reason, as long as you set them up in the configuration.
 
 ### Data Storage
 
 By default the bot will save all forecast data pulled from AccuWeather to dist under the `data/aw/<location>/` folders. And if you specified a custom model for your location, it'll save converted in-game predictions too, even though this information can also be directly derived from the AW data alone.
 
 The AW data is needed used to compile reports from past forecasts every hour. If you want to delete these files, make sure to leave at least the last two days.
-
-## Usage
-
-### Set Forecast Channel
-
-Just @mention the bot with a channel:
-
-`@Castform setChannel #weather`
-  
-Make sure it gets write and embed access to that channel, ofc.
-
-Bear in mind that only one active channel possible per server for now. 
