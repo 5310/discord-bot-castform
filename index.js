@@ -157,7 +157,7 @@ run(async () => {
         CB.timer(DateTime.fromObject({
           hour: 0,
           minute: location.minute || 0,
-          // zone: location.timezone
+          zone: location.timezone
         }).toJSDate(), 60 * 60 * 1000),
         // CB.timer(DateTime.local().plus({ seconds: 5 }).toJSDate(), 60 * 60 * 1000), // DEBUG:
         forecast,
