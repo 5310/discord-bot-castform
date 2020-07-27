@@ -12,7 +12,9 @@ Now, since I can't afford to get a commercial AW key to serve the entire planet,
 
 ## Install
 
-This is a Node.js project. It also makes of of a lot of ES2015+ so use at least Node 10.x I myself will always be on the latest unstable.
+This is a Node.js project. It also makes of of a lot of ES2015+ so use at least Node 10.x I myself will always be on the latest unstable. 
+
+As per usual, switch to the repository and run: `$ npm init`
 
 ## Configure
 All the configuration for this bot is stored in a file named `config.json`. Duplicate the included `template.locations.json` and then and rename it to `config.json`. Edit this file to suit your needs.
@@ -55,3 +57,7 @@ A single instance of the bot can push webhooks to any number of Discord servers 
 By default the bot will save all forecast data pulled from AccuWeather to dist under the `data/aw/<location>/` folders. And if you specified a custom model for your location, it'll save converted in-game predictions too, even though this information can also be directly derived from the AW data alone.
 
 The AW data is needed used to compile reports from past forecasts every hour. If you want to delete these files, make sure to leave at least the last two days.
+
+## Run
+
+`$ npm start`
