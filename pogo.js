@@ -5,7 +5,7 @@ const labelEmoteMap = {
   rain: '☔',
   snow: '⛄',
   fog: '🌫',
-  windy: '🌀',
+  windy: '🪁',
   alert: '⚠',
   none: '⚫',
 }
