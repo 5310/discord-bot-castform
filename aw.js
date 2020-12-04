@@ -8,7 +8,20 @@ const API = location => `https://dataservice.accuweather.com/forecasts/v1/hourly
 const query = location$ => pipe(
   location$,
   // tap(location => console.log(`AccuWeather at ${location.name}`, API(location))),
-  map(location => fromPromise(fetch(API(location)).then(res => res.json()).then(forecast => ({ location, forecast })))),
+  map(location => fromPromise(
+    fetch(API(location))
+      .then(res => res.json())
+      .then(res => {
+        if (res.Code === 'ServiceUnavailable') throw Error(`The allowed number of requests has been exceeded for ${location.name}.`)
+        else return res
+      })
+      .then(forecast => ({ location, forecast }))
+      .catch((e) => {
+        const message = `${e.name}: ${e.message}`
+        console.error(message)
+        return message
+      })
+  )),
   flatten,
   filter(payload => Array.isArray(payload.forecast)),
   // tap(console.debug), // DEBUG:
