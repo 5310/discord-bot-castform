@@ -5,7 +5,6 @@
     "id": "206690",
     "timezone": "Asia/Kolkata",
     "minute": 30,
-    "model": "th0rnleaf",
     "webhooks": [
       {
         "id": "<DISCORD-WEBHOOK-ID>",
@@ -20,7 +19,6 @@
     "id": "3318389",
     "timezone": "Asia/Kolkata",
     "minute": 30,
-    "model": "old",
     "webhooks": [
       {
         "id": "<DISCORD-WEBHOOK-ID>",
