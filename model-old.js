@@ -51,20 +51,23 @@ const aw2pogo = ({
   gust,
   precip,
   snow,
-}) => ({
-  dominant:
-    ['rain', 'snow'].includes(weatherMap[label]) ? weatherMap[label]
-      : snow >= thresholds.dominant.snow ? 'snow'
-        : precip >= thresholds.dominant.rain ? 'rain'
-          : label.search('wshowers') >= 0 ? weatherMap[label]
-            : wind + gust >= thresholds.dominant.wind ? 'windy' // DEBUG: This was our old wind model
-              : weatherMap[label],
-  superficial: {
-    'snow': snow >= thresholds.superficial.snow,
-    'rain': precip >= thresholds.superficial.rain,
-    'windy': wind >= thresholds.superficial.wind
+}) => {
+  const weather = weatherMap[label] ?? { dominant: 'unknown', superficial: {}, windyable: false }
+  return {
+    dominant:
+      ['rain', 'snow'].includes(weather) ? weather
+        : snow >= thresholds.dominant.snow ? 'snow'
+          : precip >= thresholds.dominant.rain ? 'rain'
+            : label.search('wshowers') >= 0 ? weather
+              : wind + gust >= thresholds.dominant.wind ? 'windy' // DEBUG: This was our old wind model
+                : weather,
+    superficial: {
+      'snow': snow >= thresholds.superficial.snow,
+      'rain': precip >= thresholds.superficial.rain,
+      'windy': wind >= thresholds.superficial.wind
+    }
   }
-})
+}
 // NOTE: Apparently AW 'w/ showers' overrides this entirely:
 // https://www.reddit.com/r/TheSilphRoad/comments/9uoz3r/the_usual_requirement_for_wind_seems_to_have/e95x731/
 
