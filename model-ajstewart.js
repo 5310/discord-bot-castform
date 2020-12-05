@@ -145,6 +145,11 @@ const weatherMap = ({
     superficial: {},
     windyable: true
   },
+  ice: {
+    dominant: 'clear',
+    superficial: {},
+    windyable: true
+  },
 })
 
 const thresholds = {

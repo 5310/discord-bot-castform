@@ -33,6 +33,7 @@ const weatherMap = ({
   flurries: { dominant: 'snow', superficial: {} },
   snow: { dominant: 'snow', superficial: {} },
   windy: { dominant: 'windy', superficial: {}, windyable: true },
+  ice: { dominant: 'clear', superficial: {}, windyable: true },
 })
 
 const thresholds = {

@@ -29,6 +29,7 @@ const weatherMap = ({
   flurries: 'snow',
   snow: 'snow',
   windy: 'windy',
+  ice: 'clear',
 }) // https://i.imgur.com/LgkxoJx.png
 
 const thresholds = {
