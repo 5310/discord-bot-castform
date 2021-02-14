@@ -12,7 +12,7 @@ Now, since I can't afford to get a commercial AW key to serve the entire planet,
 
 ## Install
 
-This is a Node.js project. It also makes of of a lot of ES2015+ so use at least Node 10.x I myself will always be on the latest unstable. 
+This is a Node.js project. It also makes of of a lot of ES2015+ so use at least Node 14 which should be LTS by now. I myself will always be on the latest unstable. 
 
 As per usual, switch to the repository and run: `$ npm init`
 
