@@ -1,14 +1,14 @@
 const labelEmoteMap = {
-  clear: '☀',
-  partlycloudy: '⛅',
-  cloudy: '☁',
-  rain: '☔',
-  snow: '⛄',
-  fog: '🌫',
-  windy: '🪁',
-  alert: '⚠',
-  none: '⚫',
-  unknown: '❔',
+  clear: '\:sunny:',                  // ☀
+  partlycloudy: '\:white_sun_cloud:', // ⛅
+  cloudy: '\:cloud:',                 // ☁
+  rain: '\:umbrella:',                // ☔
+  snow: '\:snowman:',                 // ⛄
+  fog: '\:foggy:',                    // 🌫
+  windy: '\:kite:',                   // 🪁
+  alert: '\:warning:',                // ⚠
+  none: '\:black_circle:',            // ⚫
+  unknown: '\:question:',             // ❔
 }
 
 module.exports = {
